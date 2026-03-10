@@ -635,7 +635,11 @@
         <div class="contact-form-section">
             <h2>Send Us a Message</h2>
             <p>Fill out the form below and one of our experts will get back to you within 24 hours.</p>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formsubmit.co/info@mtnview.us" method="POST">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="New Contact Form Submission - MVWD Website">
+                <input type="hidden" name="_next" value="https://mvwd-mockup.vercel.app/contact?submitted=true">
+                <input type="hidden" name="_template" value="table">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="firstName">First Name *</label>
