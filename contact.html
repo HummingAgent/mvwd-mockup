@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Mountain View Window & Door</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .logo-placeholder {
+            font-size: 0.6rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8b7355;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+            padding: 5rem 5%;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 5%;
+            gap: 4rem;
+        }
+
+        .contact-form-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form-section p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8b7355;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: #8b7355;
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            align-self: flex-start;
+        }
+
+        .submit-btn:hover {
+            background: #6d5a44;
+        }
+
+        /* Contact Info */
+        .contact-info-section {
+            background: #f8f8f8;
+            padding: 3rem;
+        }
+
+        .contact-info-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #2c3e50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-detail-content h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-detail-content p,
+        .contact-detail-content a {
+            color: #666;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact-detail-content a:hover {
+            color: #8b7355;
+        }
+
+        /* Experience Centers Section - Cutting Edge Design */
+        .experience-centers {
+            background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-centers::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #8b7355, transparent);
+        }
+
+        .experience-centers-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-centers-header span {
+            display: inline-block;
+            background: linear-gradient(90deg, #8b7355, #c4a67c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .experience-centers-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: white;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .experience-centers-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .centers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .center-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .center-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, rgba(139,115,85,0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .center-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139,115,85,0.5);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(139,115,85,0.1);
+        }
+
+        .center-card:hover::before {
+            opacity: 1;
+        }
+
+        .center-image {
+            height: 250px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .center-card:nth-child(2) .center-image {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800') center/cover;
+        }
+
+        .center-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(139,115,85,0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+
+        .center-sqft {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+
+        .center-content {
+            padding: 2.5rem;
+        }
+
+        .center-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #8b7355;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .center-location svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .center-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: white;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .center-address {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .center-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-tag {
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.8);
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .center-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .center-btn {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .center-btn.primary {
+            background: linear-gradient(135deg, #8b7355 0%, #a68b5b 100%);
+            color: white;
+        }
+
+        .center-btn.primary:hover {
+            background: linear-gradient(135deg, #9d8262 0%, #b89c6c 100%);
+            box-shadow: 0 10px 30px rgba(139,115,85,0.3);
+        }
+
+        .center-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .center-btn.secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .center-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Animated background elements */
+        .bg-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139,115,85,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .bg-glow-1 {
+            top: -100px;
+            left: -100px;
+        }
+
+        .bg-glow-2 {
+            bottom: -100px;
+            right: -100px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #888;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .centers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-centers-header h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .center-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="tel:303-534-5454">303-534-5454</a>
+        <a href="mailto:info@mtnview.us">info@mtnview.us</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="/" style="text-decoration: none; color: inherit;">
+                <span class="logo-main">MOUNTAIN VIEW</span>
+                <span class="logo-sub">Window & Door</span>
+            </a>
+            <span class="logo-placeholder">(new logo placement)</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/products">Products</a></li>
+            <li><a href="/experience-center">Experience Center</a></li>
+            <li><a href="/installation-services">Installation</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Let's Connect</h1>
+        <p>Whether you're a homeowner starting a project or a professional looking for a trusted partner, we're here to help.</p>
+    </section>
+
+    <!-- Contact Grid -->
+    <section class="contact-grid">
+        <div class="contact-form-section">
+            <h2>Send Us a Message</h2>
+            <p>Fill out the form below and one of our experts will get back to you within 24 hours.</p>
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type">I am a...</label>
+                    <select id="type" name="type">
+                        <option value="">Select one</option>
+                        <option value="homeowner">Homeowner</option>
+                        <option value="contractor">Contractor</option>
+                        <option value="architect">Architect</option>
+                        <option value="builder">Builder</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us about your project</label>
+                    <textarea id="message" name="message" placeholder="Share details about your windows, doors, or project needs..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+        <div class="contact-info-section">
+            <h2>Contact Information</h2>
+            <div class="contact-detail">
+                <div class="contact-icon">📞</div>
+                <div class="contact-detail-content">
+                    <h4>Phone</h4>
+                    <a href="tel:303-534-5454">303-534-5454</a>
+                </div>
+            </div>
+            <div class="contact-detail">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-detail-content">
+                    <h4>Email</h4>
+                    <a href="mailto:info@mtnview.us">info@mtnview.us</a>
+                </div>
+            </div>
+            <div class="contact-detail">
+                <div class="contact-icon">🕐</div>
+                <div class="contact-detail-content">
+                    <h4>Hours</h4>
+                    <p>Monday - Friday: 8am - 5pm<br>Saturday: By Appointment<br>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Centers Section -->
+    <section class="experience-centers">
+        <div class="bg-glow bg-glow-1"></div>
+        <div class="bg-glow bg-glow-2"></div>
+        
+        <div class="experience-centers-header">
+            <span>Visit Us In Person</span>
+            <h2>Experience Centers</h2>
+            <p>Step into our award-winning showrooms to see, touch, and experience our premium windows and doors firsthand.</p>
+        </div>
+
+        <div class="centers-grid">
+            <!-- Denver Experience Center -->
+            <div class="center-card">
+                <div class="center-image">
+                    <span class="center-badge">Award Winning</span>
+                    <span class="center-sqft">5,000 Sq. Ft.</span>
+                </div>
+                <div class="center-content">
+                    <div class="center-location">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Denver Metro
+                    </div>
+                    <h3>Denver Experience Center</h3>
+                    <p class="center-address">
+                        5765 E Evans Ave<br>
+                        Denver, CO 80222
+                    </p>
+                    <div class="center-features">
+                        <span class="feature-tag">Live Displays</span>
+                        <span class="feature-tag">Expert Consultations</span>
+                        <span class="feature-tag">Pro Events</span>
+                    </div>
+                    <div class="center-actions">
+                        <a href="https://maps.google.com/?q=5765+E+Evans+Ave,+Denver,+CO+80222" target="_blank" rel="noopener" class="center-btn primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Get Directions
+                        </a>
+                        <a href="tel:303-534-5454" class="center-btn secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            Call
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grand Junction Experience Center -->
+            <div class="center-card">
+                <div class="center-image">
+                    <span class="center-badge">Western Slope</span>
+                    <span class="center-sqft">Showroom</span>
+                </div>
+                <div class="center-content">
+                    <div class="center-location">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Grand Junction
+                    </div>
+                    <h3>Grand Junction Experience Center</h3>
+                    <p class="center-address">
+                        2478 Patterson Rd<br>
+                        Grand Junction, CO 81505
+                    </p>
+                    <div class="center-features">
+                        <span class="feature-tag">Full Product Line</span>
+                        <span class="feature-tag">Personal Service</span>
+                        <span class="feature-tag">Local Expertise</span>
+                    </div>
+                    <div class="center-actions">
+                        <a href="https://maps.google.com/?q=2478+Patterson+Rd,+Grand+Junction,+CO+81505" target="_blank" rel="noopener" class="center-btn primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Get Directions
+                        </a>
+                        <a href="tel:303-534-5454" class="center-btn secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            Call
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Mountain View Window & Door</h4>
+                <p>Serving Colorado homeowners and professionals since 2006.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/experience-center">Experience Center</a></li>
+                    <li><a href="/installation-services">Installation Services</a></li>
+                    <li><a href="/about-us">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Denver Location</h4>
+                <p>5765 E Evans Ave<br>Denver, CO 80222</p>
+            </div>
+            <div class="footer-col">
+                <h4>Grand Junction Location</h4>
+                <p>2478 Patterson Rd<br>Grand Junction, CO 81505</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mountain View Window & Door. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
