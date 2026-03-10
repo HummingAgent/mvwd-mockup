@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/products", "destination": "/products.html" },
+    { "source": "/experience-center", "destination": "/experience-center.html" },
+    { "source": "/installation-services", "destination": "/installation-services.html" },
+    { "source": "/about-us", "destination": "/about-us.html" },
+    { "source": "/professionals", "destination": "/professionals.html" },
+    { "source": "/homeowners", "destination": "/homeowners.html" }
+  ]
+}
