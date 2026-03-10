@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Mountain View Window & Door</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #8b7355;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920') center/cover;
+            padding: 8rem 5%;
+            text-align: center;
+            color: white;
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            padding: 4rem 5%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 4rem 5%;
+            background: #f8f8f8;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(145deg, #c4d4c9 0%, #9ab5a3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .product-content {
+            padding: 2rem;
+        }
+
+        .product-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .product-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .product-link {
+            display: inline-block;
+            color: #8b7355;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .product-link:hover {
+            color: #6d5a44;
+        }
+
+        /* Brands Section */
+        .brands-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .brands-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .brands-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .brands-intro p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .brands-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .brand-card {
+            background: #f8f8f8;
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .brand-card:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .brand-card:hover .brand-link {
+            color: #8b7355;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .brand-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .brand-card:hover p {
+            color: #ccc;
+        }
+
+        .brand-link {
+            display: inline-block;
+            color: #8b7355;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #8b7355;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #6d5a44;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #888;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="tel:303-534-5454">303-534-5454</a>
+        <a href="mailto:info@mtnview.us">info@mtnview.us</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="/">
+                <span class="logo-main">MOUNTAIN VIEW</span>
+                <span class="logo-sub">Window & Door</span>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/products" class="active">Products</a></li>
+            <li><a href="/experience-center">Experience Center</a></li>
+            <li><a href="/installation-services">Installation</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>Products</h1>
+        <p>Quality windows and doors from industry-leading manufacturers.</p>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <p>Choosing which brand and product is right for your project is one of the most challenging decisions you'll have to make. When you partner with MVWD, you've "solved that problem" in advance.</p>
+        <p>As the premier place in Colorado for quality windows & doors, dozens of manufacturers approach us every year to represent them. We carefully research the company and their products, and rarely say "Yes." We choose to partner only with "leaders" in the industry, who are superior to their peers, in every aspect of their business, and in the quality of their creations.</p>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <h2 class="section-title">Product Categories</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    📸 Windows Photo
+                </div>
+                <div class="product-content">
+                    <h3>Windows</h3>
+                    <p>From casement to double-hung, awning to picture windows — we carry a complete range of styles to match any architectural vision.</p>
+                    <a href="https://www.mtnview.us/products" class="product-link">Explore Windows →</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    📸 Doors Photo
+                </div>
+                <div class="product-content">
+                    <h3>Doors</h3>
+                    <p>Entry doors, patio doors, folding doors, and multi-slide systems designed to transform your space and enhance your lifestyle.</p>
+                    <a href="https://www.mtnview.us/products" class="product-link">Explore Doors →</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    📸 Hardware Photo
+                </div>
+                <div class="product-content">
+                    <h3>Hardware</h3>
+                    <p>Premium hardware options that complement your windows and doors — from handles to hinges, locks to lifts.</p>
+                    <a href="https://www.mtnview.us/products" class="product-link">Explore Hardware →</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    📸 Custom Millwork Photo
+                </div>
+                <div class="product-content">
+                    <h3>Custom Millwork</h3>
+                    <p>Bespoke millwork solutions crafted to your specifications. When standard options won't do, we create exactly what you need.</p>
+                    <a href="https://www.mtnview.us/z1v3x" class="product-link">Explore Millwork →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands-section">
+        <div class="brands-intro">
+            <h2>Our Trusted Partners</h2>
+            <p>We've hand-selected the best manufacturers in the industry to ensure you get exceptional quality and lasting value.</p>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-card">
+                <div class="brand-logo">Andersen</div>
+                <p>E-Series, A-Series, and 100 Series windows and doors.</p>
+                <a href="https://www.mtnview.us/xjp2a" class="brand-link">Learn More →</a>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">Weather Shield</div>
+                <p>Premium wood and aluminum-clad windows and doors.</p>
+                <a href="https://www.mtnview.us/products" class="brand-link">Learn More →</a>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">Fleetwood</div>
+                <p>Large-scale aluminum windows and multi-slide door systems.</p>
+                <a href="https://www.mtnview.us/products" class="brand-link">Learn More →</a>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">Western Window Systems</div>
+                <p>Contemporary aluminum window and door solutions.</p>
+                <a href="https://www.mtnview.us/l2e1i" class="brand-link">Learn More →</a>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">Milgard</div>
+                <p>Quality windows and patio doors for any style.</p>
+                <a href="https://www.mtnview.us/piylt" class="brand-link">Learn More →</a>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">+ More</div>
+                <p>Visit our showroom to see our complete selection.</p>
+                <a href="/experience-center" class="brand-link">Visit Showroom →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Not Sure Where to Start?</h2>
+        <p>Our experts are here to help you find the perfect products for your project. Schedule a consultation or visit one of our showrooms.</p>
+        <a href="/contact" class="cta-btn">Request a Quote</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Mountain View Window & Door</h4>
+                <p>Serving Colorado homeowners and professionals since 2006.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/experience-center">Experience Center</a></li>
+                    <li><a href="/installation-services">Installation Services</a></li>
+                    <li><a href="/about-us">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Denver Location</h4>
+                <p>5765 E Evans Ave<br>Denver, CO 80222</p>
+            </div>
+            <div class="footer-col">
+                <h4>Grand Junction Location</h4>
+                <p>2478 Patterson Rd<br>Grand Junction, CO 81505</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mountain View Window & Door. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
