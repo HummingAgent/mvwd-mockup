@@ -94,7 +94,7 @@
         /* Hero Section */
         .page-hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920') center/cover;
+                        url('https://static.wixstatic.com/media/d8e226_0099aa1ef39945ed960d0aac03a2a56b~mv2_d_2448_3264_s_4_2.jpg/v1/fill/w_1920,h_600,al_c,q_85,enc_auto/d8e226_0099aa1ef39945ed960d0aac03a2a56b~mv2_d_2448_3264_s_4_2.jpg') center/cover;
             padding: 8rem 5%;
             text-align: center;
             color: white;
@@ -102,16 +102,17 @@
 
         .page-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 400;
             margin-bottom: 1rem;
+            letter-spacing: -0.04em;
         }
 
-        .page-hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
+        .page-hero-divider {
+            width: 80px;
+            height: 2px;
+            background: white;
             margin: 0 auto;
-            opacity: 0.9;
         }
 
         /* Intro Section */
@@ -123,7 +124,7 @@
         }
 
         .intro-section p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #555;
             line-height: 1.8;
             margin-bottom: 1.5rem;
@@ -133,29 +134,37 @@
             margin-bottom: 0;
         }
 
-        /* Products Grid */
-        .products-section {
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: #8b7355;
+            margin: 0 auto 3rem;
+        }
+
+        /* Brand Grid */
+        .brands-section {
             padding: 4rem 5%;
             background: #f8f8f8;
         }
 
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 400;
-            margin-bottom: 3rem;
-        }
-
-        .products-grid {
+        .brands-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
-        .product-card {
+        .brand-card {
             background: white;
             border-radius: 8px;
             overflow: hidden;
@@ -163,127 +172,53 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .product-card:hover {
+        .brand-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
 
-        .product-image {
-            height: 250px;
-            background: linear-gradient(145deg, #c4d4c9 0%, #9ab5a3 100%);
+        .brand-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .brand-image {
+            height: 140px;
+            background: linear-gradient(145deg, #f5f5f5 0%, #e8e8e8 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1rem;
+            padding: 1.5rem;
         }
 
-        .product-content {
-            padding: 2rem;
+        .brand-image img {
+            max-width: 80%;
+            max-height: 80px;
+            object-fit: contain;
         }
 
-        .product-content h3 {
+        .brand-content {
+            padding: 1.5rem;
+        }
+
+        .brand-content h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
             color: #2c3e50;
         }
 
-        .product-content p {
+        .brand-content p {
             color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .product-link {
-            display: inline-block;
-            color: #8b7355;
-            text-decoration: none;
-            font-weight: 600;
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
+            line-height: 1.6;
         }
 
-        .product-link:hover {
-            color: #6d5a44;
-        }
-
-        /* Brands Section */
-        .brands-section {
-            padding: 5rem 5%;
+        /* Doors Section */
+        .doors-section {
+            padding: 4rem 5%;
             background: white;
-        }
-
-        .brands-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-        }
-
-        .brands-intro h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .brands-intro p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        .brands-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .brand-card {
-            background: #f8f8f8;
-            padding: 2.5rem;
-            text-align: center;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-
-        .brand-card:hover {
-            background: #2c3e50;
-            color: white;
-        }
-
-        .brand-card:hover .brand-link {
-            color: #8b7355;
-        }
-
-        .brand-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .brand-card p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            transition: color 0.3s;
-        }
-
-        .brand-card:hover p {
-            color: #ccc;
-        }
-
-        .brand-link {
-            display: inline-block;
-            color: #8b7355;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         /* CTA Section */
@@ -392,10 +327,14 @@
             }
 
             .page-hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .products-grid {
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .brands-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -408,7 +347,7 @@
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
-        <a href="tel:303-534-5454">303-534-5454</a>
+        <a href="tel:303-649-2217">303-649-2217</a>
         <a href="mailto:info@mtnview.us">info@mtnview.us</a>
     </div>
 
@@ -432,106 +371,265 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <h1>Products</h1>
-        <p>Quality windows and doors from industry-leading manufacturers.</p>
+        <div class="page-hero-divider"></div>
     </section>
 
     <!-- Intro Section -->
     <section class="intro-section">
         <p>Choosing which brand and product is right for your project is one of the most challenging decisions you'll have to make. When you partner with MVWD, you've "solved that problem" in advance.</p>
-        <p>As the premier place in Colorado for quality windows & doors, dozens of manufacturers approach us every year to represent them. We carefully research the company and their products, and rarely say "Yes." We choose to partner only with "leaders" in the industry, who are superior to their peers, in every aspect of their business, and in the quality of their creations.</p>
+        <p>As the premier place in Colorado for luxury windows & doors, dozens of manufacturers approach us every year to represent them. We carefully research the company and their products, and rarely say "Yes." We choose to partner only with "leaders" in the industry, who are superior to their peers, in every aspect of their business, and in the quality of their creations.</p>
     </section>
 
-    <!-- Products Grid -->
-    <section class="products-section">
-        <h2 class="section-title">Product Categories</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-image">
-                    📸 Windows Photo
-                </div>
-                <div class="product-content">
-                    <h3>Windows</h3>
-                    <p>From casement to double-hung, awning to picture windows — we carry a complete range of styles to match any architectural vision.</p>
-                    <a href="https://www.mtnview.us/products" class="product-link">Explore Windows →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    📸 Doors Photo
-                </div>
-                <div class="product-content">
-                    <h3>Doors</h3>
-                    <p>Entry doors, patio doors, folding doors, and multi-slide systems designed to transform your space and enhance your lifestyle.</p>
-                    <a href="https://www.mtnview.us/products" class="product-link">Explore Doors →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    📸 Hardware Photo
-                </div>
-                <div class="product-content">
-                    <h3>Hardware</h3>
-                    <p>Premium hardware options that complement your windows and doors — from handles to hinges, locks to lifts.</p>
-                    <a href="https://www.mtnview.us/products" class="product-link">Explore Hardware →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    📸 Custom Millwork Photo
-                </div>
-                <div class="product-content">
-                    <h3>Custom Millwork</h3>
-                    <p>Bespoke millwork solutions crafted to your specifications. When standard options won't do, we create exactly what you need.</p>
-                    <a href="https://www.mtnview.us/z1v3x" class="product-link">Explore Millwork →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Brands Section -->
-    <section class="brands-section">
-        <div class="brands-intro">
-            <h2>Our Trusted Partners</h2>
-            <p>We've hand-selected the best manufacturers in the industry to ensure you get exceptional quality and lasting value.</p>
-        </div>
+    <!-- Windows Section -->
+    <section class="brands-section" id="windows">
+        <h2 class="section-title">Windows</h2>
+        <div class="section-divider"></div>
         <div class="brands-grid">
             <div class="brand-card">
-                <div class="brand-logo">Andersen</div>
-                <p>E-Series, A-Series, and 100 Series windows and doors.</p>
-                <a href="https://www.mtnview.us/xjp2a" class="brand-link">Learn More →</a>
+                <a href="https://www.loewen.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/216e47_bc4c0150b19d42f8b1eafc26a5726ae7~mv2.jpg/v1/fill/w_300,h_237,al_c,q_80,enc_auto/216e47_bc4c0150b19d42f8b1eafc26a5726ae7~mv2.jpg" alt="Loewen Windows">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Loewen Windows</h3>
+                        <p>Leading manufacturer of premium windows for the luxury architectural market.</p>
+                    </div>
+                </a>
             </div>
 
             <div class="brand-card">
-                <div class="brand-logo">Weather Shield</div>
-                <p>Premium wood and aluminum-clad windows and doors.</p>
-                <a href="https://www.mtnview.us/products" class="brand-link">Learn More →</a>
+                <a href="https://www.fleetwoodusa.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_ec58911b4906478e8fc63e46fe763ba7~mv2.png/v1/fill/w_300,h_94,al_c,q_85,enc_auto/d8e226_ec58911b4906478e8fc63e46fe763ba7~mv2.png" alt="Fleetwood">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Fleetwood</h3>
+                        <p>Luxury aluminum minimal frame products.</p>
+                    </div>
+                </a>
             </div>
 
             <div class="brand-card">
-                <div class="brand-logo">Fleetwood</div>
-                <p>Large-scale aluminum windows and multi-slide door systems.</p>
-                <a href="https://www.mtnview.us/products" class="brand-link">Learn More →</a>
+                <a href="https://www.eurolinesteelwindows.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_62e60c0f89f849b5ba2af027ac910782~mv2.png/v1/fill/w_300,h_74,al_c,q_85,enc_auto/d8e226_62e60c0f89f849b5ba2af027ac910782~mv2.png" alt="Euroline">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Euroline</h3>
+                        <p>Extraordinary steel windows and doors for extraordinary homes.</p>
+                    </div>
+                </a>
             </div>
 
             <div class="brand-card">
-                <div class="brand-logo">Western Window Systems</div>
-                <p>Contemporary aluminum window and door solutions.</p>
-                <a href="https://www.mtnview.us/l2e1i" class="brand-link">Learn More →</a>
+                <a href="https://www.andersenwindows.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/216e47_557575c56db748faad239d348f0dcb39~mv2.jpg/v1/fill/w_300,h_65,al_c,q_80,enc_auto/216e47_557575c56db748faad239d348f0dcb39~mv2.jpg" alt="Andersen Windows">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Andersen Windows</h3>
+                        <p>Superior products, variety of collections, customizable and energy efficient.</p>
+                    </div>
+                </a>
             </div>
 
             <div class="brand-card">
-                <div class="brand-logo">Milgard</div>
-                <p>Quality windows and patio doors for any style.</p>
-                <a href="https://www.mtnview.us/piylt" class="brand-link">Learn More →</a>
+                <a href="https://www.weathershield.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/216e47_78894b4029cd4c859a5dfb7db6a48abe~mv2.png/v1/fill/w_300,h_90,al_c,q_85,enc_auto/216e47_78894b4029cd4c859a5dfb7db6a48abe~mv2.png" alt="Weather Shield Windows">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Weather Shield Windows</h3>
+                        <p>An ultra-modern, high design collection of all-aluminum windows.</p>
+                    </div>
+                </a>
             </div>
 
             <div class="brand-card">
-                <div class="brand-logo">+ More</div>
-                <p>Visit our showroom to see our complete selection.</p>
-                <a href="/experience-center" class="brand-link">Visit Showroom →</a>
+                <a href="https://www.milgard.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_e64106bc908846bfa62808629b557eb1~mv2.jpg/v1/fill/w_200,h_213,al_c,q_80,enc_auto/d8e226_e64106bc908846bfa62808629b557eb1~mv2.jpg" alt="Milgard">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Milgard</h3>
+                        <p>Multifamily Solutions</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doors Section -->
+    <section class="doors-section" id="doors">
+        <h2 class="section-title">Doors</h2>
+        <div class="section-divider"></div>
+        <div class="brands-grid">
+            <div class="brand-card">
+                <a href="https://www.loewen.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/216e47_bc4c0150b19d42f8b1eafc26a5726ae7~mv2.jpg/v1/fill/w_300,h_237,al_c,q_80,enc_auto/216e47_bc4c0150b19d42f8b1eafc26a5726ae7~mv2.jpg" alt="Loewen Doors">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Loewen Doors</h3>
+                        <p>Leading manufacturer of premium doors for the luxury architectural market.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.andersenwindows.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/216e47_557575c56db748faad239d348f0dcb39~mv2.jpg/v1/fill/w_300,h_65,al_c,q_80,enc_auto/216e47_557575c56db748faad239d348f0dcb39~mv2.jpg" alt="Andersen Doors">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Andersen Doors</h3>
+                        <p>Superior products, variety of collections, customizable and energy efficient.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.andersenwindows.com/windows-and-doors/doors/big-doors/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_cf78d1ba7e584d20bd0fc2697927be33~mv2.jpg/v1/fill/w_300,h_89,al_c,q_80,enc_auto/d8e226_cf78d1ba7e584d20bd0fc2697927be33~mv2.jpg" alt="Andersen Big Doors">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Andersen Big Doors</h3>
+                        <p>Unlimited selection, architectural authenticity, unmatched performance, monumental sizes.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.eurolinesteelwindows.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_62e60c0f89f849b5ba2af027ac910782~mv2.png/v1/fill/w_300,h_74,al_c,q_85,enc_auto/d8e226_62e60c0f89f849b5ba2af027ac910782~mv2.png" alt="Euroline">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Euroline</h3>
+                        <p>Extraordinary steel windows and doors for extraordinary homes.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.weathershield.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/216e47_036df831bd5f4afe967174c6c393c17f~mv2.jpg/v1/fill/w_300,h_75,al_c,q_80,enc_auto/216e47_036df831bd5f4afe967174c6c393c17f~mv2.jpg" alt="Weather Shield Doors">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Weather Shield Doors</h3>
+                        <p>An ultra-modern, high design collection of all-aluminum doors.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.fleetwoodusa.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_ec58911b4906478e8fc63e46fe763ba7~mv2.png/v1/fill/w_300,h_94,al_c,q_85,enc_auto/d8e226_ec58911b4906478e8fc63e46fe763ba7~mv2.png" alt="Fleetwood">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Fleetwood</h3>
+                        <p>Luxury minimal frame aluminum products.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="http://www.lacantinadoors.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_9f74acac2e0443c68163b04c23411e97~mv2.jpg/v1/fill/w_300,h_108,al_c,q_80,enc_auto/d8e226_9f74acac2e0443c68163b04c23411e97~mv2.jpg" alt="LaCantina Doors">
+                    </div>
+                    <div class="brand-content">
+                        <h3>LaCantina Doors</h3>
+                        <p>A pioneer in designing and manufacturing large door systems.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.trustile.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_167b47fe155c4b2894fba4afb20f2129.jpg/v1/fill/w_300,h_108,al_c,q_80,enc_auto/d8e226_167b47fe155c4b2894fba4afb20f2129.jpg" alt="TruStile">
+                    </div>
+                    <div class="brand-content">
+                        <h3>TruStile</h3>
+                        <p>Using premium materials, made to order, solid MDF wood and glass interior doors.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="http://mountainview.centor.com/us/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_fa30b476f7c14ad3b39f9da19bc2b019~mv2.jpg/v1/fill/w_300,h_108,al_c,q_80,enc_auto/d8e226_fa30b476f7c14ad3b39f9da19bc2b019~mv2.jpg" alt="Centor">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Centor</h3>
+                        <p>Folding and sliding doors providing indoor outdoor living. Energy efficient with vanishing screens and shades.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.mtnview.us/mvwd-custom-millwork" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_1e7ec887dacf419cb258d0aa6d61c4b9.jpg/v1/fill/w_300,h_108,al_c,q_80,enc_auto/d8e226_1e7ec887dacf419cb258d0aa6d61c4b9.jpg" alt="MVWD Custom Millwork">
+                    </div>
+                    <div class="brand-content">
+                        <h3>MVWD Custom Millwork</h3>
+                        <p>What you envision we create.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.milgard.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_e64106bc908846bfa62808629b557eb1~mv2.jpg/v1/fill/w_200,h_213,al_c,q_80,enc_auto/d8e226_e64106bc908846bfa62808629b557eb1~mv2.jpg" alt="Milgard">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Milgard</h3>
+                        <p>Multifamily solutions.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.provia.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_b53940690ab241e1a6eadafc17459a46.jpg/v1/fill/w_300,h_108,al_c,q_80,enc_auto/d8e226_b53940690ab241e1a6eadafc17459a46.jpg" alt="ProVia">
+                    </div>
+                    <div class="brand-content">
+                        <h3>ProVia</h3>
+                        <p>High quality, energy efficient, custom entry door systems.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://goodsmillwork.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_990f836a50bc404ab41e955215acaa5d~mv2.jpg/v1/fill/w_300,h_87,al_c,q_80,enc_auto/d8e226_990f836a50bc404ab41e955215acaa5d~mv2.jpg" alt="Goods Millwork">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Goods Millwork</h3>
+                        <p>Wood doors and trim.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="brand-card">
+                <a href="https://www.earthwooddesign.com/" target="_blank" rel="noopener">
+                    <div class="brand-image">
+                        <img src="https://static.wixstatic.com/media/d8e226_0a2773afe70c4560964a164566f7f38d~mv2.png/v1/fill/w_200,h_142,al_c,q_85,enc_auto/d8e226_0a2773afe70c4560964a164566f7f38d~mv2.png" alt="Earthwood Design">
+                    </div>
+                    <div class="brand-content">
+                        <h3>Earthwood Design</h3>
+                        <p>Custom Built Colorado Pivot doors and custom applications.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -548,7 +646,7 @@
         <div class="footer-content">
             <div class="footer-col">
                 <h4>Mountain View Window & Door</h4>
-                <p>Serving Colorado homeowners and professionals since 2006.</p>
+                <p>Colorado's premier destination for luxury windows and doors since 2006.</p>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -561,11 +659,11 @@
             </div>
             <div class="footer-col">
                 <h4>Denver Location</h4>
-                <p>5765 E Evans Ave<br>Denver, CO 80222</p>
+                <p>815 S Jason St<br>Denver, CO 80223<br><a href="tel:303-649-2217">303-649-2217</a></p>
             </div>
             <div class="footer-col">
                 <h4>Grand Junction Location</h4>
-                <p>2478 Patterson Rd<br>Grand Junction, CO 81505</p>
+                <p>571 25 Rd<br>Grand Junction, CO 81505<br><a href="tel:970-314-2329">970-314-2329</a></p>
             </div>
         </div>
         <div class="footer-bottom">
