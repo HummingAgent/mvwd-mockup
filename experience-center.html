@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Centers | Mountain View Window & Door</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .logo-placeholder {
+            font-size: 0.6rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8b7355;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+            padding: 5rem 5%;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* MVWD Experience Centers Section */
+        .mvwd-centers {
+            background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+            padding: 5rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mvwd-centers::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #8b7355, transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header span {
+            display: inline-block;
+            background: linear-gradient(90deg, #8b7355, #c4a67c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .centers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .center-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .center-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139,115,85,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .center-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .center-image.denver {
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('/images/denver-showroom.jpg');
+        }
+
+        .center-image.gj {
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('/images/gj-showroom.jpg');
+        }
+
+        .center-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(139,115,85,0.9);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+
+        .center-content {
+            padding: 1.5rem;
+        }
+
+        .center-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .center-content p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .center-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .center-btn {
+            padding: 0.6rem 1rem;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .center-btn.primary {
+            background: linear-gradient(135deg, #8b7355 0%, #a68b5b 100%);
+            color: white;
+        }
+
+        .center-btn.primary:hover {
+            box-shadow: 0 5px 20px rgba(139,115,85,0.3);
+        }
+
+        .center-btn.virtual {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+        }
+
+        .center-btn.virtual:hover {
+            box-shadow: 0 5px 20px rgba(124,58,237,0.3);
+        }
+
+        /* Virtual Experiences Section */
+        .virtual-experiences {
+            padding: 5rem 5%;
+            background: #f8f8f8;
+        }
+
+        .virtual-experiences .section-header h2 {
+            color: #2c3e50;
+        }
+
+        .virtual-experiences .section-header span {
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .virtual-experiences .section-header p {
+            color: #666;
+        }
+
+        .virtual-intro {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .virtual-intro p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .feature-item span {
+            font-size: 1.2rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .virtual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .virtual-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .virtual-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .virtual-card-image {
+            height: 180px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .virtual-card-image span {
+            font-size: 3rem;
+        }
+
+        .virtual-card-content {
+            padding: 1.25rem;
+        }
+
+        .virtual-card-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .virtual-card-content p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .virtual-card-btn {
+            display: inline-block;
+            padding: 0.6rem 1.25rem;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .virtual-card-btn:hover {
+            box-shadow: 0 5px 20px rgba(124,58,237,0.3);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 5%;
+            background: #2c3e50;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+
+        .testimonial blockquote {
+            font-size: 1.1rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .testimonial cite {
+            font-style: normal;
+            color: #c4a67c;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #8b7355;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #6d5a44;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #888;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .centers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="tel:303-534-5454">303-534-5454</a>
+        <a href="mailto:info@mtnview.us">info@mtnview.us</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="/" style="text-decoration: none; color: inherit;">
+                <span class="logo-main">MOUNTAIN VIEW</span>
+                <span class="logo-sub">Window & Door</span>
+            </a>
+            <span class="logo-placeholder">(new logo placement)</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/products">Products</a></li>
+            <li><a href="/experience-center">Experience Center</a></li>
+            <li><a href="/installation-services">Installation</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Experience Centers</h1>
+        <p>Visit our award-winning showrooms or explore our virtual experiences from anywhere in the world.</p>
+    </section>
+
+    <!-- MVWD Experience Centers -->
+    <section class="mvwd-centers">
+        <div class="section-header">
+            <span>Visit Us In Person</span>
+            <h2>MVWD Showrooms</h2>
+            <p>Step into our showrooms to see, touch, and experience premium windows and doors.</p>
+        </div>
+
+        <div class="centers-grid">
+            <!-- Denver -->
+            <div class="center-card">
+                <div class="center-image denver">
+                    <span class="center-badge">Award Winning</span>
+                </div>
+                <div class="center-content">
+                    <h3>Denver Experience Center</h3>
+                    <p>815 S Jason St, Denver, CO 80223</p>
+                    <div class="center-actions">
+                        <a href="https://maps.google.com/?q=815+S+Jason+St,+Denver,+CO+80223" target="_blank" class="center-btn primary">📍 Directions</a>
+                        <a href="https://my.matterport.com/show/?m=ai1GXxvacWU" target="_blank" class="center-btn virtual">🎥 Virtual Tour</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grand Junction -->
+            <div class="center-card">
+                <div class="center-image gj">
+                    <span class="center-badge">Western Slope</span>
+                </div>
+                <div class="center-content">
+                    <h3>Grand Junction Experience Center</h3>
+                    <p>571 25 Rd (JXN Station), Grand Junction, CO 81505</p>
+                    <div class="center-actions">
+                        <a href="https://maps.google.com/?q=571+25+Rd,+Grand+Junction,+CO+81505" target="_blank" class="center-btn primary">📍 Directions</a>
+                        <a href="https://my.matterport.com/show/?m=SjWs79uAEt8" target="_blank" class="center-btn virtual">🎥 Virtual Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Experiences Section -->
+    <section class="virtual-experiences">
+        <div class="section-header">
+            <span>Virtual Experience</span>
+            <h2>Explore From Anywhere</h2>
+            <p>Available exclusively to MVWD customers</p>
+        </div>
+
+        <div class="virtual-intro">
+            <p>See how the Mountain View Virtual Experience is poised to become an indispensable part of the contractor/builder process. Just a few simple steps can increase job productivity, reduce customer call-backs and decrease liability.</p>
+        </div>
+
+        <div class="features-list">
+            <div class="feature-item">
+                <span>📋</span>
+                <p>Provide a permanent, digital log of what's behind the walls before they're covered</p>
+            </div>
+            <div class="feature-item">
+                <span>🌍</span>
+                <p>Collaborate with stakeholders and team members anywhere in the world</p>
+            </div>
+            <div class="feature-item">
+                <span>📱</span>
+                <p>Instantly view detailed areas of a building from any internet-connected device</p>
+            </div>
+            <div class="feature-item">
+                <span>📐</span>
+                <p>Give future owners a record of wire, pipe, and ductwork locations plus measurements</p>
+            </div>
+            <div class="feature-item">
+                <span>📸</span>
+                <p>Easily create stunning photo galleries for your marketing and social media teams</p>
+            </div>
+        </div>
+
+        <div class="virtual-grid">
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>🚪</span></div>
+                <div class="virtual-card-content">
+                    <h4>Loewen Showroom</h4>
+                    <p>Explore Loewen's premium window and door collection</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>🚪</span></div>
+                <div class="virtual-card-content">
+                    <h4>TruStile Showroom</h4>
+                    <p>Discover TruStile's interior door designs</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>🏠</span></div>
+                <div class="virtual-card-content">
+                    <h4>Hilltop One</h4>
+                    <p>Completed luxury home project</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>🔧</span></div>
+                <div class="virtual-card-content">
+                    <h4>Hilltop One (Construction)</h4>
+                    <p>Pre-insulation documentation</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>🏠</span></div>
+                <div class="virtual-card-content">
+                    <h4>University Hills Spec House</h4>
+                    <p>Spec home showcase</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>🔧</span></div>
+                <div class="virtual-card-content">
+                    <h4>FJ Builders Home (Construction)</h4>
+                    <p>Pre-insulation virtual scan</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>⛳</span></div>
+                <div class="virtual-card-content">
+                    <h4>Saddleback Golf Course</h4>
+                    <p>Commercial project showcase</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>🏚️</span></div>
+                <div class="virtual-card-content">
+                    <h4>Country Road Barn</h4>
+                    <p>Rustic barn conversion project</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>🏢</span></div>
+                <div class="virtual-card-content">
+                    <h4>F9 Productions HQ</h4>
+                    <p>Commercial headquarters tour</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+
+            <div class="virtual-card">
+                <div class="virtual-card-image"><span>🎨</span></div>
+                <div class="virtual-card-content">
+                    <h4>Deco Moderne Mullet</h4>
+                    <p>Before and after featuring Andersen E-Series</p>
+                    <a href="#" class="virtual-card-btn">View Virtual Tour</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonials">
+        <div class="testimonial">
+            <blockquote>"This is the most fantastic tool I have ever seen for 3D representation of the project! I was able to use it to find details like pipes, cables, and ductwork to make necessary corrections. This is saving time and costs for both the subcontractors and myself."</blockquote>
+            <cite>— Jim, General Contractor, Hilltop Project</cite>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h3>Interested in a Virtual Experience?</h3>
+        <p>Contact us to learn how the MVWD Virtual Experience can benefit your next project.</p>
+        <a href="/contact" class="cta-btn">Get Started</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Mountain View Window & Door</h4>
+                <p>Serving Colorado homeowners and professionals since 2006.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/experience-center">Experience Center</a></li>
+                    <li><a href="/installation-services">Installation Services</a></li>
+                    <li><a href="/about-us">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Denver Location</h4>
+                <p>815 S Jason St<br>Denver, CO 80223</p>
+            </div>
+            <div class="footer-col">
+                <h4>Grand Junction Location</h4>
+                <p>571 25 Rd (JXN Station)<br>Grand Junction, CO 81505</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mountain View Window & Door. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
