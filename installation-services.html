@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Services | Mountain View Window & Door</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .logo-placeholder {
+            font-size: 0.6rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8b7355;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920') center/cover;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 4rem 5%;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #8b7355;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .hero-cta:hover {
+            background: #6d5a44;
+        }
+
+        /* Key Message */
+        .key-message {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .key-message h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .key-message p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .certifications-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .certifications-header span {
+            display: inline-block;
+            color: #8b7355;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .certifications-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: #f8f8f8;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .cert-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8b7355 0%, #c4a67c 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .cert-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .cert-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Equipment Section */
+        .equipment {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: white;
+        }
+
+        .equipment-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .equipment-header span {
+            display: inline-block;
+            background: linear-gradient(90deg, #8b7355, #c4a67c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .equipment-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .equipment-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .equipment-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(139,115,85,0.2);
+            border: 2px solid #8b7355;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .equipment-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #c4a67c;
+        }
+
+        .equipment-content p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 5%;
+            background: #f8f8f8;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .process-header span {
+            display: inline-block;
+            color: #8b7355;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .process-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -1rem;
+            width: calc(100% - 80px);
+            height: 2px;
+            background: linear-gradient(90deg, #8b7355, #c4a67c);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 3px solid #8b7355;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #8b7355;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step h4 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Coverage Section */
+        .coverage {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .coverage-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .coverage-text span {
+            display: inline-block;
+            color: #8b7355;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .coverage-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .coverage-text p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .coverage-list {
+            list-style: none;
+        }
+
+        .coverage-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+        }
+
+        .coverage-list li span {
+            color: #8b7355;
+            font-size: 1.2rem;
+        }
+
+        .coverage-image {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800') center/cover;
+            height: 400px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .coverage-badge {
+            background: rgba(255,255,255,0.95);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .coverage-badge h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .coverage-badge p {
+            color: #8b7355;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            background: #8b7355;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #8b7355;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #888;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .coverage-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="tel:303-534-5454">303-534-5454</a>
+        <a href="mailto:info@mtnview.us">info@mtnview.us</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="/" style="text-decoration: none; color: inherit;">
+                <span class="logo-main">MOUNTAIN VIEW</span>
+                <span class="logo-sub">Window & Door</span>
+            </a>
+            <span class="logo-placeholder">(new logo placement)</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/products">Products</a></li>
+            <li><a href="/experience-center">Experience Center</a></li>
+            <li><a href="/installation-services">Installation</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get It Done Right</h1>
+            <p>Even the highest quality products won't perform as desired if they're installed improperly. Trust our certified experts.</p>
+            <a href="/contact" class="hero-cta">Schedule Installation</a>
+        </div>
+    </section>
+
+    <!-- Key Message -->
+    <section class="key-message">
+        <h2>Installation Masters</h2>
+        <p>Our installation team brings decades of combined experience, industry-leading certifications, and a commitment to excellence that ensures your windows and doors perform flawlessly for years to come.</p>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications">
+        <div class="certifications-header">
+            <span>Why Choose Us</span>
+            <h2>Certified Excellence</h2>
+        </div>
+
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-icon">🏆</div>
+                <span class="cert-badge">AAMA Certified</span>
+                <h3>Installation Masters</h3>
+                <p>Our installers hold AAMA (American Architectural Manufacturers Association) certification, the gold standard for window and door installation professionals.</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">🛡️</div>
+                <span class="cert-badge">OSHA Compliant</span>
+                <h3>Safety First</h3>
+                <p>All our installation crews are OSHA trained and compliant, ensuring the highest safety standards on every job site.</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">📋</div>
+                <span class="cert-badge">Fully Covered</span>
+                <h3>Complete Protection</h3>
+                <p>Full insurance coverage and workers' compensation on every project. Your home and our team are always protected.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section class="equipment">
+        <div class="equipment-header">
+            <span>Professional Grade</span>
+            <h2>Industry-Leading Equipment</h2>
+        </div>
+
+        <div class="equipment-grid">
+            <div class="equipment-item">
+                <div class="equipment-icon">🏗️</div>
+                <div class="equipment-content">
+                    <h4>OSHA Compliant Cranes & Lifts</h4>
+                    <p>For oversized windows and big doors, we deploy professional-grade cranes and lifts that meet all OSHA safety requirements.</p>
+                </div>
+            </div>
+
+            <div class="equipment-item">
+                <div class="equipment-icon">🔧</div>
+                <div class="equipment-content">
+                    <h4>Wood's Powr-Grip Vacuum Lifts</h4>
+                    <p>Heavy-duty vacuum lift systems for safe, precise handling of large glass panels and oversized units without damage.</p>
+                </div>
+            </div>
+
+            <div class="equipment-item">
+                <div class="equipment-icon">📐</div>
+                <div class="equipment-content">
+                    <h4>Precision Measurement Tools</h4>
+                    <p>Laser measurement and leveling systems ensure perfect fit and alignment on every installation.</p>
+                </div>
+            </div>
+
+            <div class="equipment-item">
+                <div class="equipment-icon">🚚</div>
+                <div class="equipment-content">
+                    <h4>Specialized Transport</h4>
+                    <p>Custom transport solutions protect your investment from factory to final installation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="process-header">
+            <span>Our Process</span>
+            <h2>Professional Site Management</h2>
+        </div>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Site Assessment</h4>
+                <p>Detailed evaluation of your space and existing structures</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Preparation</h4>
+                <p>Protecting your home and preparing the work area</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>Installation</h4>
+                <p>Expert installation by certified professionals</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Quality Check</h4>
+                <p>Thorough inspection and final walkthrough</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="coverage">
+        <div class="coverage-content">
+            <div class="coverage-text">
+                <span>Peace of Mind</span>
+                <h2>Comprehensive Coverage</h2>
+                <p>We protect your investment and our team with industry-leading insurance and warranty coverage. Every installation comes with complete documentation and support.</p>
+                
+                <ul class="coverage-list">
+                    <li><span>✓</span> Full Liability Insurance</li>
+                    <li><span>✓</span> Workers' Compensation Coverage</li>
+                    <li><span>✓</span> Product Warranty Support</li>
+                    <li><span>✓</span> Installation Guarantee</li>
+                    <li><span>✓</span> Post-Installation Support</li>
+                </ul>
+            </div>
+
+            <div class="coverage-image">
+                <div class="coverage-badge">
+                    <h3>Serving Colorado</h3>
+                    <p>Since 2006</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>Let our certified installation team bring your vision to life with precision, care, and expertise.</p>
+        <a href="/contact" class="cta-btn">Schedule a Consultation</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Mountain View Window & Door</h4>
+                <p>Serving Colorado homeowners and professionals since 2006.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/experience-center">Experience Center</a></li>
+                    <li><a href="/installation-services">Installation Services</a></li>
+                    <li><a href="/about-us">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Denver Location</h4>
+                <p>815 S Jason St<br>Denver, CO 80223</p>
+            </div>
+            <div class="footer-col">
+                <h4>Grand Junction Location</h4>
+                <p>571 25 Rd (JXN Station)<br>Grand Junction, CO 81505</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mountain View Window & Door. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
