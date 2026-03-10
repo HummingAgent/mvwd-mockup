@@ -36,12 +36,16 @@
 
         /* Navigation */
         nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            background: white;
-            border-bottom: 1px solid #eee;
+            padding: 1.5rem 5%;
+            background: transparent;
+            z-index: 100;
         }
 
         .logo {
@@ -49,7 +53,7 @@
         }
 
         .logo-img {
-            height: 70px;
+            height: 60px;
             width: auto;
         }
 
@@ -88,7 +92,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: white;
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -97,20 +101,29 @@
         }
 
         .nav-links a:hover {
-            color: #8b7355;
+            color: #c9a96e;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), 
                         url('./images/cedar-hero.avif') center/cover;
-            min-height: 80vh;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             padding: 4rem 5%;
+        }
+
+        .hero-logo {
+            width: 450px;
+            max-width: 80%;
+            margin-bottom: 2rem;
+            filter: brightness(0) invert(1);
         }
 
         .hero-content h1 {
@@ -519,7 +532,7 @@
     <!-- Navigation -->
     <nav>
         <a href="/" class="logo">
-            <img src="/images/mvwd-logo.svg" alt="Mountain View Window & Door" class="logo-img">
+            <img src="/images/mvwd-logo-white.svg" alt="Mountain View Window & Door" class="logo-img">
         </a>
         <ul class="nav-links">
             <li><a href="/products">Products</a></li>
@@ -533,6 +546,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <img src="/images/mvwd-logo.svg" alt="Mountain View Window & Door" class="hero-logo">
         <div class="hero-content">
             <h1>Enhancing your lifestyle with quality windows, big doors and value-driven expertise.</h1>
             <a href="/contact" class="hero-cta">Request a Quote</a>
