@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Mountain View Window & Door</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .logo-placeholder {
+            font-size: 0.6rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8b7355;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://static.wixstatic.com/media/216e47_afc192afbc70421ca6b078842fe2efbc~mv2_d_6720_3538_s_4_2.jpg/v1/fill/w_1920,h_1080,al_c,q_90/216e47_afc192afbc70421ca6b078842fe2efbc~mv2_d_6720_3538_s_4_2.jpg') center/cover;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 4rem 5%;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Filter Tabs */
+        .filter-section {
+            background: #f8f8f8;
+            padding: 2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .filter-tab {
+            padding: 1rem 2.5rem;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tab:hover {
+            border-color: #8b7355;
+            color: #8b7355;
+        }
+
+        .filter-tab.active {
+            background: #2c3e50;
+            border-color: #2c3e50;
+            color: white;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 4rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header span {
+            display: inline-block;
+            color: #8b7355;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .portfolio-item.featured {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .portfolio-overlay p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+        }
+
+        .portfolio-overlay .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .portfolio-overlay .tag {
+            background: rgba(139,115,85,0.9);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #2c3e50;
+            padding: 4rem 5%;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #c4a67c;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #8b7355 0%, #6d5a44 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #8b7355;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #888;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Hidden sections for filtering */
+        .portfolio-category {
+            display: none;
+        }
+
+        .portfolio-category.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item.featured {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .filter-tabs {
+                flex-direction: column;
+            }
+
+            .filter-tab {
+                text-align: center;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item.featured {
+                grid-column: span 1;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="tel:303-649-2217">303-649-2217</a>
+        <a href="mailto:info@mtnview.us">info@mtnview.us</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="/" style="text-decoration: none; color: inherit;">
+                <span class="logo-main">MOUNTAIN VIEW</span>
+                <span class="logo-sub">Window & Door</span>
+            </a>
+            <span class="logo-placeholder">(new logo placement)</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/products">Products</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/experience-center">Experience Center</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Work</h1>
+            <p>From mountain retreats to urban masterpieces, see how we've helped transform Colorado's finest properties.</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-tab active" onclick="showCategory('all')">All Projects</button>
+            <button class="filter-tab" onclick="showCategory('residential')">Residential</button>
+            <button class="filter-tab" onclick="showCategory('commercial')">Commercial</button>
+        </div>
+    </section>
+
+    <!-- All Projects -->
+    <section class="portfolio-section portfolio-category active" id="all">
+        <div class="section-header">
+            <span>Featured Work</span>
+            <h2>All Projects</h2>
+            <p>A selection of our finest residential and commercial installations across Colorado.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item featured">
+                <img src="https://static.wixstatic.com/media/216e47_afc192afbc70421ca6b078842fe2efbc~mv2_d_6720_3538_s_4_2.jpg/v1/fill/w_800,h_600,al_c,q_85/216e47_afc192afbc70421ca6b078842fe2efbc~mv2_d_6720_3538_s_4_2.jpg" alt="Cherry Hills Residence">
+                <div class="portfolio-overlay">
+                    <h3>Cherry Hills Village Residence</h3>
+                    <p>Denver, CO</p>
+                    <div class="tags">
+                        <span class="tag">Residential</span>
+                        <span class="tag">Andersen</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/d8e226_288a27158ba74014a2ac4e12122ff7ff~mv2_d_2000_1333_s_2.jpg/v1/fill/w_600,h_450,al_c,q_80/d8e226_288a27158ba74014a2ac4e12122ff7ff~mv2_d_2000_1333_s_2.jpg" alt="Pearl Izumi">
+                <div class="portfolio-overlay">
+                    <h3>Pearl Izumi HQ</h3>
+                    <p>Louisville, CO</p>
+                    <div class="tags">
+                        <span class="tag">Commercial</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_798ce7f8018d496d82cd86468a801b99~mv2_d_2049_1537_s_2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_798ce7f8018d496d82cd86468a801b99~mv2_d_2049_1537_s_2.jpg" alt="Washington Park">
+                <div class="portfolio-overlay">
+                    <h3>Washington Park Residence</h3>
+                    <p>Denver, CO</p>
+                    <div class="tags">
+                        <span class="tag">Residential</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_14e3c0de6f634ecfb6aaf926cdaef540~mv2_d_4032_2268_s_2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_14e3c0de6f634ecfb6aaf926cdaef540~mv2_d_4032_2268_s_2.jpg" alt="Upslope Brewing">
+                <div class="portfolio-overlay">
+                    <h3>Upslope Brewing Company</h3>
+                    <p>Boulder, CO</p>
+                    <div class="tags">
+                        <span class="tag">Commercial</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/d8e226_187e0d5497f848f1a4434d496dd70cde~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/d8e226_187e0d5497f848f1a4434d496dd70cde~mv2.jpg" alt="Highlands Residence">
+                <div class="portfolio-overlay">
+                    <h3>Highlands Residence</h3>
+                    <p>Denver, CO</p>
+                    <div class="tags">
+                        <span class="tag">Residential</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_83332e5292214b8db8dab43d73110c89~mv2_d_4032_2268_s_2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_83332e5292214b8db8dab43d73110c89~mv2_d_4032_2268_s_2.jpg" alt="Denver Health">
+                <div class="portfolio-overlay">
+                    <h3>Denver Health</h3>
+                    <p>Denver, CO</p>
+                    <div class="tags">
+                        <span class="tag">Commercial</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_9d959622149e47a49e745d8742839c6b~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_9d959622149e47a49e745d8742839c6b~mv2.jpg" alt="Redlands Mesa">
+                <div class="portfolio-overlay">
+                    <h3>Redlands Mesa Residence</h3>
+                    <p>Grand Junction, CO</p>
+                    <div class="tags">
+                        <span class="tag">Residential</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/d8e226_ab3db5add874473fb624ec7dfb69b823.jpg/v1/fill/w_600,h_450,al_c,q_80/d8e226_ab3db5add874473fb624ec7dfb69b823.jpg" alt="Ross Montessori">
+                <div class="portfolio-overlay">
+                    <h3>Ross Montessori School</h3>
+                    <p>Carbondale, CO</p>
+                    <div class="tags">
+                        <span class="tag">Commercial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Residential Projects -->
+    <section class="portfolio-section portfolio-category" id="residential">
+        <div class="section-header">
+            <span>Homes & Estates</span>
+            <h2>Residential Projects</h2>
+            <p>Luxury windows and doors for Colorado's most distinguished homes.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item featured">
+                <img src="https://static.wixstatic.com/media/216e47_afc192afbc70421ca6b078842fe2efbc~mv2_d_6720_3538_s_4_2.jpg/v1/fill/w_800,h_600,al_c,q_85/216e47_afc192afbc70421ca6b078842fe2efbc~mv2_d_6720_3538_s_4_2.jpg" alt="Cherry Hills Residence">
+                <div class="portfolio-overlay">
+                    <h3>Cherry Hills Village Residence</h3>
+                    <p>Denver, CO</p>
+                    <div class="tags">
+                        <span class="tag">Andersen E-Series</span>
+                        <span class="tag">Full Home</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_798ce7f8018d496d82cd86468a801b99~mv2_d_2049_1537_s_2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_798ce7f8018d496d82cd86468a801b99~mv2_d_2049_1537_s_2.jpg" alt="Washington Park">
+                <div class="portfolio-overlay">
+                    <h3>Washington Park Residence</h3>
+                    <p>Denver, CO</p>
+                    <div class="tags">
+                        <span class="tag">Remodel</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/d8e226_187e0d5497f848f1a4434d496dd70cde~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/d8e226_187e0d5497f848f1a4434d496dd70cde~mv2.jpg" alt="Highlands Residence">
+                <div class="portfolio-overlay">
+                    <h3>Highlands Residence</h3>
+                    <p>Denver, CO</p>
+                    <div class="tags">
+                        <span class="tag">New Construction</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_9d959622149e47a49e745d8742839c6b~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_9d959622149e47a49e745d8742839c6b~mv2.jpg" alt="Redlands Mesa">
+                <div class="portfolio-overlay">
+                    <h3>Redlands Mesa Residence</h3>
+                    <p>Grand Junction, CO</p>
+                    <div class="tags">
+                        <span class="tag">Mountain Modern</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_5c6c49f70350449f90c92cd3f9154174~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_5c6c49f70350449f90c92cd3f9154174~mv2.jpg" alt="Castle Pines">
+                <div class="portfolio-overlay">
+                    <h3>Castle Pines Residence</h3>
+                    <p>Castle Pines, CO</p>
+                    <div class="tags">
+                        <span class="tag">Loewen</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_6d730bcf1b4b4112a805565af5ef9a40~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_6d730bcf1b4b4112a805565af5ef9a40~mv2.jpg" alt="Boulder Residence">
+                <div class="portfolio-overlay">
+                    <h3>Central Boulder Residence</h3>
+                    <p>Boulder, CO</p>
+                    <div class="tags">
+                        <span class="tag">Contemporary</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/d8e226_422ab550d2704eaca6320285db00e7c1.jpg/v1/fill/w_600,h_450,al_c,q_80/d8e226_422ab550d2704eaca6320285db00e7c1.jpg" alt="Winter Park">
+                <div class="portfolio-overlay">
+                    <h3>Winter Park Residence</h3>
+                    <p>Winter Park, CO</p>
+                    <div class="tags">
+                        <span class="tag">Mountain</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_31550ad0ddfc41c59d84a285ca5a3a00~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_31550ad0ddfc41c59d84a285ca5a3a00~mv2.jpg" alt="Chautauqua">
+                <div class="portfolio-overlay">
+                    <h3>Chautauqua Park Residence</h3>
+                    <p>Boulder, CO</p>
+                    <div class="tags">
+                        <span class="tag">Historic Remodel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial Projects -->
+    <section class="portfolio-section portfolio-category" id="commercial">
+        <div class="section-header">
+            <span>Business & Institutional</span>
+            <h2>Commercial Projects</h2>
+            <p>Performance and aesthetics for Colorado's leading businesses and institutions.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item featured">
+                <img src="https://static.wixstatic.com/media/d8e226_288a27158ba74014a2ac4e12122ff7ff~mv2_d_2000_1333_s_2.jpg/v1/fill/w_800,h_600,al_c,q_85/d8e226_288a27158ba74014a2ac4e12122ff7ff~mv2_d_2000_1333_s_2.jpg" alt="Pearl Izumi">
+                <div class="portfolio-overlay">
+                    <h3>Pearl Izumi Headquarters</h3>
+                    <p>Louisville, CO</p>
+                    <div class="tags">
+                        <span class="tag">Corporate</span>
+                        <span class="tag">Fleetwood</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_14e3c0de6f634ecfb6aaf926cdaef540~mv2_d_4032_2268_s_2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_14e3c0de6f634ecfb6aaf926cdaef540~mv2_d_4032_2268_s_2.jpg" alt="Upslope Brewing">
+                <div class="portfolio-overlay">
+                    <h3>Upslope Brewing Company</h3>
+                    <p>Boulder, CO</p>
+                    <div class="tags">
+                        <span class="tag">Hospitality</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_83332e5292214b8db8dab43d73110c89~mv2_d_4032_2268_s_2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_83332e5292214b8db8dab43d73110c89~mv2_d_4032_2268_s_2.jpg" alt="Denver Health">
+                <div class="portfolio-overlay">
+                    <h3>Denver Health</h3>
+                    <p>Denver, CO</p>
+                    <div class="tags">
+                        <span class="tag">Healthcare</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/d8e226_ab3db5add874473fb624ec7dfb69b823.jpg/v1/fill/w_600,h_450,al_c,q_80/d8e226_ab3db5add874473fb624ec7dfb69b823.jpg" alt="Ross Montessori">
+                <div class="portfolio-overlay">
+                    <h3>Ross Montessori School</h3>
+                    <p>Carbondale, CO</p>
+                    <div class="tags">
+                        <span class="tag">Education</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_7017a06fa7e841fb8f3966821f4f2a65~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_7017a06fa7e841fb8f3966821f4f2a65~mv2.jpg" alt="Naropa University">
+                <div class="portfolio-overlay">
+                    <h3>Naropa University</h3>
+                    <p>Boulder, CO</p>
+                    <div class="tags">
+                        <span class="tag">Education</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/d8e226_c5a58fc348c1454f88e7bae0abac698f.jpg/v1/fill/w_600,h_450,al_c,q_80/d8e226_c5a58fc348c1454f88e7bae0abac698f.jpg" alt="Amatos Ale House">
+                <div class="portfolio-overlay">
+                    <h3>Amato's Ale House</h3>
+                    <p>Grand Junction, CO</p>
+                    <div class="tags">
+                        <span class="tag">Hospitality</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/216e47_bfc7598e1e194b38be941e12aeba31ed~mv2_d_4032_3024_s_4_2.jpg/v1/fill/w_600,h_450,al_c,q_80/216e47_bfc7598e1e194b38be941e12aeba31ed~mv2_d_4032_3024_s_4_2.jpg" alt="Wild Coffee">
+                <div class="portfolio-overlay">
+                    <h3>The Wild Coffee & Cocktail Bar</h3>
+                    <p>Denver, CO</p>
+                    <div class="tags">
+                        <span class="tag">Hospitality</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://static.wixstatic.com/media/d8e226_04ae4f28299e4309b68eb0274b66e84a~mv2_d_2560_1440_s_2.jpg/v1/fill/w_600,h_450,al_c,q_80/d8e226_04ae4f28299e4309b68eb0274b66e84a~mv2_d_2560_1440_s_2.jpg" alt="Staunton State Park">
+                <div class="portfolio-overlay">
+                    <h3>Staunton State Park</h3>
+                    <p>Pine, CO</p>
+                    <div class="tags">
+                        <span class="tag">Parks & Recreation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3>19</h3>
+                <p>Years in Business</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Builder Partners</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>AAMA Certified</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Whether residential or commercial, we're here to help you find the perfect windows and doors for your vision.</p>
+        <a href="/contact" class="cta-btn">Request a Consultation</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Mountain View Window & Door</h4>
+                <p>Serving Colorado homeowners and professionals since 2006.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href="/experience-center">Experience Center</a></li>
+                    <li><a href="/about-us">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Denver Location</h4>
+                <p>815 S Jason St<br>Denver, CO 80223<br><a href="tel:303-649-2217">303-649-2217</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Grand Junction Location</h4>
+                <p>571 25 Rd (JXN Station)<br>Grand Junction, CO 81505<br><a href="tel:970-314-2329">970-314-2329</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mountain View Window & Door. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showCategory(category) {
+            // Update active tab
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Show/hide sections
+            document.querySelectorAll('.portfolio-category').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(category).classList.add('active');
+        }
+    </script>
+</body>
+</html>
