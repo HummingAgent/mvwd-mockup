@@ -332,6 +332,7 @@
             background: linear-gradient(145deg, rgba(139,115,85,0.1) 0%, transparent 50%);
             opacity: 0;
             transition: opacity 0.4s ease;
+            pointer-events: none;
         }
 
         .center-card:hover {
@@ -382,6 +383,8 @@
 
         .center-content {
             padding: 2.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .center-location {
@@ -478,11 +481,15 @@
         }
 
         .center-btn.virtual {
+            display: flex;
             width: 100%;
             margin-top: 1rem;
             background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
             border: none;
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
         }
 
         .center-btn.virtual:hover {
