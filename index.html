@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mountain View Window & Door | Denver's Trusted Window & Door Experts</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Windows and Doors | Denver | Mountain View Window & Door</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,9 +13,25 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: #1a1a1a;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
             line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
         }
 
         /* Navigation */
@@ -25,521 +41,411 @@
             align-items: center;
             padding: 1rem 5%;
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            border-bottom: 1px solid #eee;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2d5a3d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
         }
 
         .logo-placeholder {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-placeholder img {
-            height: 50px;
-        }
-
-        .logo-placeholder .logo-note {
-            font-size: 0.7rem;
-            color: #888;
-            font-weight: 400;
+            font-size: 0.6rem;
+            color: #999;
+            margin-top: 0.25rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #333;
+            font-size: 0.9rem;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: #2d5a3d;
-        }
-
-        .nav-cta {
-            background: #2d5a3d;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .nav-cta:hover {
-            background: #234a31;
+            color: #8b7355;
         }
 
         /* Hero Section */
         .hero {
-            padding: 10rem 5% 6rem;
-            background: linear-gradient(135deg, #f8faf9 0%, #e8f0eb 100%);
-            min-height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920') center/cover;
+            min-height: 80vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 4rem 5%;
         }
 
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-        }
-
-        .hero-text h1 span {
-            color: #2d5a3d;
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            color: #555;
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            max-width: 800px;
+            line-height: 1.3;
             margin-bottom: 2rem;
-            max-width: 500px;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-primary {
-            background: #2d5a3d;
+        .hero-cta {
+            display: inline-block;
+            background: #8b7355;
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
+            padding: 1rem 2.5rem;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary:hover {
-            background: #234a31;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(45, 90, 61, 0.2);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #2d5a3d;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            border: 2px solid #2d5a3d;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: #f0f5f2;
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image-placeholder {
-            background: linear-gradient(145deg, #c4d4c9 0%, #9ab5a3 100%);
-            border-radius: 20px;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* Trust Bar */
-        .trust-bar {
-            background: white;
-            padding: 3rem 5%;
-            border-bottom: 1px solid #eee;
-        }
-
-        .trust-bar-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .trust-item {
-            text-align: center;
-        }
-
-        .trust-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2d5a3d;
-        }
-
-        .trust-label {
-            color: #666;
             font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
         }
 
-        /* Services Section */
-        .services {
-            padding: 6rem 5%;
-            background: white;
+        .hero-cta:hover {
+            background: #6d5a44;
         }
 
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .section-header p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Audience Cards Section */
+        .audience-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: #f8faf9;
-            border-radius: 16px;
-            padding: 2.5rem;
-            transition: all 0.3s;
-            border: 1px solid #e8f0eb;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: #2d5a3d;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .service-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-link {
-            color: #2d5a3d;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .service-link:hover {
-            gap: 0.75rem;
-        }
-
-        /* Who We Serve */
-        .audience {
-            padding: 6rem 5%;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            color: white;
-        }
-
-        .audience .section-header h2 {
-            color: white;
-        }
-
-        .audience .section-header p {
-            color: #aaa;
-        }
-
-        .audience-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
         }
 
         .audience-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 3rem;
+            padding: 4rem 3rem;
             text-align: center;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .audience-card.dark {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .audience-card.light {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .audience-card.medium {
+            background: #8b7355;
+            color: white;
+        }
+
+        .audience-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .audience-card h5 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.8;
+            max-width: 280px;
+        }
+
+        .audience-card .card-cta {
+            margin-top: 2rem;
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border: 2px solid currentColor;
+            text-decoration: none;
+            color: inherit;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             transition: all 0.3s;
         }
 
-        .audience-card:hover {
-            background: rgba(255,255,255,0.08);
-            transform: translateY(-5px);
-        }
-
-        .audience-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .audience-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .audience-card p {
-            color: #aaa;
-            margin-bottom: 1.5rem;
-        }
-
-        .audience-card .btn-primary {
+        .audience-card.dark .card-cta:hover {
             background: white;
-            color: #1a1a1a;
+            color: #2c3e50;
         }
 
-        .audience-card .btn-primary:hover {
-            background: #f0f0f0;
+        .audience-card.light .card-cta:hover {
+            background: #333;
+            color: white;
         }
 
-        /* Why Choose Us */
-        .why-us {
-            padding: 6rem 5%;
+        .audience-card.medium .card-cta:hover {
             background: white;
+            color: #8b7355;
         }
 
-        .why-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .why-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .why-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #e8f0eb 0%, #c4d4c9 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-        }
-
-        .why-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .why-item p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Testimonials */
+        /* Testimonials Section */
         .testimonials {
-            padding: 6rem 5%;
-            background: #f8faf9;
+            padding: 5rem 5%;
+            background: white;
         }
 
         .testimonials-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
         }
 
-        .testimonial-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .testimonial-stars {
-            color: #f5a623;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+        .testimonial {
+            padding: 2rem;
         }
 
         .testimonial-text {
-            font-size: 1.05rem;
-            color: #444;
-            margin-bottom: 1.5rem;
             font-style: italic;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
         }
 
         .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: #2d5a3d;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
             font-weight: 600;
+            color: #333;
         }
 
-        .author-info h4 {
-            font-size: 1rem;
-            color: #1a1a1a;
-        }
-
-        .author-info p {
+        .testimonial-role {
             font-size: 0.85rem;
             color: #888;
         }
 
-        /* Experience Center CTA */
-        .experience-cta {
-            padding: 6rem 5%;
-            background: linear-gradient(135deg, #2d5a3d 0%, #1e3d29 100%);
-            color: white;
+        /* Products Section */
+        .products-section {
+            padding: 5rem 5%;
+            background: #f8f8f8;
             text-align: center;
         }
 
-        .experience-cta h2 {
+        .products-section h3 {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
+            font-weight: 400;
             margin-bottom: 1rem;
         }
 
-        .experience-cta p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
+        .products-section .subtitle {
+            font-size: 1.1rem;
+            color: #666;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 1rem;
         }
 
-        .experience-cta .btn-primary {
-            background: white;
-            color: #2d5a3d;
+        .products-section .values {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 2rem;
         }
 
-        .experience-cta .btn-primary:hover {
-            background: #f0f0f0;
+        .products-section .values strong {
+            color: #8b7355;
         }
 
-        .locations {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
+        .products-cta {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
         }
 
-        .location-item {
+        .products-cta:hover {
+            background: #1a252f;
+        }
+
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 500px;
+        }
+
+        .about-image {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200') center/cover;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            opacity: 0.9;
+            justify-content: center;
+        }
+
+        .about-image-text {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .about-content {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .about-content .tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .about-cta {
+            display: inline-block;
+            background: #8b7355;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+            align-self: flex-start;
+        }
+
+        .about-cta:hover {
+            background: #6d5a44;
+        }
+
+        /* Brand Logos */
+        .brands {
+            padding: 3rem 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .brands-title {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .brand-logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #666;
+            padding: 1rem 2rem;
+            border: 1px solid #ddd;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 5%;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-cta {
+            display: inline-block;
+            background: #8b7355;
+            color: white;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .contact-cta:hover {
+            background: #6d5a44;
         }
 
         /* Footer */
         footer {
             background: #1a1a1a;
-            color: white;
-            padding: 4rem 5% 2rem;
+            color: #888;
+            padding: 3rem 5%;
         }
 
-        .footer-grid {
+        .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand p {
-            color: #888;
-            margin-top: 1rem;
-            max-width: 300px;
         }
 
         .footer-col h4 {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
             color: white;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
         }
 
         .footer-col ul {
             list-style: none;
         }
 
-        .footer-col ul li {
+        .footer-col li {
             margin-bottom: 0.75rem;
         }
 
         .footer-col a {
             color: #888;
             text-decoration: none;
+            font-size: 0.9rem;
             transition: color 0.3s;
         }
 
@@ -547,43 +453,34 @@
             color: white;
         }
 
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
         .footer-bottom {
             border-top: 1px solid #333;
+            margin-top: 2rem;
             padding-top: 2rem;
             text-align: center;
-            color: #666;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-image-placeholder {
-                height: 350px;
-            }
-
-            .why-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .audience-grid {
+            .audience-section {
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
         }
@@ -593,251 +490,143 @@
                 display: none;
             }
 
-            .hero-text h1 {
-                font-size: 2.5rem;
+            .hero-content h1 {
+                font-size: 2rem;
             }
 
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
+            .footer-content {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="tel:303-534-5454">303-534-5454</a>
+        <a href="mailto:info@mtnview.us">info@mtnview.us</a>
+    </div>
+
     <!-- Navigation -->
     <nav>
-        <div class="logo-placeholder">
-            <span class="logo">🏔️ Mountain View</span>
-            <span class="logo-note">(new logo here)</span>
+        <div class="logo">
+            <span class="logo-main">MOUNTAIN VIEW</span>
+            <span class="logo-sub">Window & Door</span>
+            <span class="logo-placeholder">(new logo placement)</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#products">Products</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#showroom">Showrooms</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/experience-center">Experience Center</a></li>
+            <li><a href="/installation-services">Installation</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta">Get a Free Quote</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <h1>Quality Windows & Doors. <span>Expert Guidance.</span></h1>
-                <p>From your first question to final installation, we're here to make your project stress-free. Transparent pricing, knowledgeable pros, and products you can depend on.</p>
-                <div class="hero-buttons">
-                    <a href="#quote" class="btn-primary">Get Your Free Quote →</a>
-                    <a href="#showroom" class="btn-secondary">Visit a Showroom</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-image-placeholder">
-                    📸 Hero image: Beautiful home with modern windows<br><br>
-                    <small>(Will add actual photography)</small>
-                </div>
-            </div>
+            <h1>Enhancing your lifestyle with quality windows, big doors and value-driven expertise.</h1>
+            <a href="/contact" class="hero-cta">Request a Quote</a>
         </div>
     </section>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar">
-        <div class="trust-bar-content">
-            <div class="trust-item">
-                <div class="trust-number">18+</div>
-                <div class="trust-label">Years in Business</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-number">5,000+</div>
-                <div class="trust-label">Projects Completed</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-number">5★</div>
-                <div class="trust-label">Google Rating</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-number">2</div>
-                <div class="trust-label">Colorado Showrooms</div>
-            </div>
+    <!-- Audience Cards -->
+    <section class="audience-section">
+        <div class="audience-card dark">
+            <h2>Professionals</h2>
+            <h5>Contractors & Architects looking for a Trusted Advisor for Windows & Doors</h5>
+            <a href="/professionals" class="card-cta">Learn More</a>
         </div>
-    </section>
-
-    <!-- Who We Serve -->
-    <section class="audience">
-        <div class="section-header">
-            <h2>We're Here to Help</h2>
-            <p>Whether you're a homeowner tackling a renovation or a contractor managing multiple projects, we've got your back.</p>
+        <div class="audience-card light">
+            <h2>Experience Centers</h2>
+            <h5>Visit our award-winning showrooms in Denver and Grand Junction to see and try out our products, or to attend one of our special events for industry professionals!</h5>
+            <a href="/experience-center" class="card-cta">Visit Us</a>
         </div>
-        <div class="audience-grid">
-            <div class="audience-card">
-                <div class="audience-icon">🏠</div>
-                <h3>Homeowners</h3>
-                <p>Looking for a transparent, one-stop shop? We'll guide you through every option and make sure you get exactly what your home needs — no pressure, no surprises.</p>
-                <a href="#homeowners" class="btn-primary">Start Your Project →</a>
-            </div>
-            <div class="audience-card">
-                <div class="audience-icon">🔧</div>
-                <h3>Contractors & Architects</h3>
-                <p>Need a trusted advisor for your window and door needs? We partner with pros to deliver on time, on spec, and within budget.</p>
-                <a href="#professionals" class="btn-primary">Partner With Us →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="why-us">
-        <div class="section-header">
-            <h2>Why Work With Us?</h2>
-            <p>We've built our reputation on doing things right — every time.</p>
-        </div>
-        <div class="why-grid">
-            <div class="why-item">
-                <div class="why-icon">💬</div>
-                <h3>Transparent Pricing</h3>
-                <p>No hidden fees, no games. You'll know exactly what you're paying for.</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">🎓</div>
-                <h3>Expert Guidance</h3>
-                <p>Our team knows windows and doors inside out. Ask us anything.</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">✅</div>
-                <h3>Quality Products</h3>
-                <p>We carry brands we believe in — built to last and backed by warranties.</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">🛠️</div>
-                <h3>Pro Installation</h3>
-                <p>Our installers treat your home like their own. Clean, careful, and thorough.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section class="services" id="services">
-        <div class="section-header">
-            <h2>What We Offer</h2>
-            <p>Everything you need for your window and door project, all under one roof.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🪟</div>
-                <h3>Windows</h3>
-                <p>From energy-efficient double-pane to custom architectural designs. We'll help you find the perfect fit for your style and budget.</p>
-                <a href="#" class="service-link">Explore Windows →</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🚪</div>
-                <h3>Doors</h3>
-                <p>Entry doors, patio doors, multi-slide systems — we carry options for every type of home and every kind of project.</p>
-                <a href="#" class="service-link">Explore Doors →</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📐</div>
-                <h3>Consultation & Design</h3>
-                <p>Not sure where to start? Our team will walk you through options, take measurements, and help you plan your project.</p>
-                <a href="#" class="service-link">Schedule Consultation →</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔨</div>
-                <h3>Professional Installation</h3>
-                <p>Our experienced installers handle everything — removal, installation, cleanup. We don't leave until it's perfect.</p>
-                <a href="#" class="service-link">Learn About Installation →</a>
-            </div>
+        <div class="audience-card medium">
+            <h2>Homeowners</h2>
+            <h5>Homeowners looking for a transparent, one-stop shop for Windows & Doors</h5>
+            <a href="/homeowners" class="card-cta">Get Started</a>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section class="testimonials">
-        <div class="section-header">
-            <h2>What Our Customers Say</h2>
-            <p>Don't just take our word for it — hear from people we've worked with.</p>
-        </div>
         <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Mountain View came in thousands of dollars less, apples to apples with another quote. DeWayne was very helpful, knowledgeable and friendly. The windows arrived on time and were installed within days. Highly recommend!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">RK</div>
-                    <div class="author-info">
-                        <h4>Robbie K.</h4>
-                        <p>Homeowner, Grand Junction</p>
-                    </div>
-                </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"We recently completed a remodel on a home in Grand Junction and we had received a couple of quotes on replacing all the windows. Mountain View Window & Door came in thousands of dollars less, apples to apples with the other quote. DeWayne was the salesman and he was very helpful, knowledgeable and friendly. The windows arrived at the estimated time and were installed within days. Would highly recommend this company!"</p>
+                <p class="testimonial-author">— Robbie K.</p>
+                <p class="testimonial-role">Homeowner</p>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"I have never been happier with a construction project. From the very first measurements, we were well informed and overwhelmed by the detail and professionalism. The product is top notch!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">SM</div>
-                    <div class="author-info">
-                        <h4>Stephanie M.</h4>
-                        <p>Homeowner</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Thanks Mountain View for opening up our space to brighter views, cutting our energy bills and helping us smile along the way!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">MV</div>
-                    <div class="author-info">
-                        <h4>Verified Customer</h4>
-                        <p>Denver Area</p>
-                    </div>
-                </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"We are right toward the end of our install and I have never been happier with a construction project. From the very first measurements, we have been well informed and just overwhelmed by the detail and professionalism they have put into our project. The product is top notch, the installers have been so fun and friendly and hardworking. I will actually miss seeing them! Thanks Mountain View for opening up our space to brighter views, cutting our energy bills and helping us smile along the way!"</p>
+                <p class="testimonial-author">— Stephanie M.</p>
+                <p class="testimonial-role">Homeowner</p>
             </div>
         </div>
     </section>
 
-    <!-- Experience Center CTA -->
-    <section class="experience-cta" id="showroom">
-        <h2>See It Before You Buy It</h2>
-        <p>Visit our award-winning showrooms to see and try out our products in person. Our experts are ready to answer your questions.</p>
-        <a href="#" class="btn-primary">Schedule a Showroom Visit →</a>
-        <div class="locations">
-            <div class="location-item">📍 Denver Showroom</div>
-            <div class="location-item">📍 Grand Junction Showroom</div>
+    <!-- Products Section -->
+    <section class="products-section">
+        <h3>Products</h3>
+        <p class="subtitle">We know your project is unique and should be stress free.</p>
+        <p class="values">In order to do that, you need <strong>expertise</strong>, <strong>value</strong>, and <strong>transparency</strong>.</p>
+        <a href="/products" class="products-cta">View Our Products</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-image">
+            <span class="about-image-text">5,000 Sq. Ft.<br>Showroom</span>
         </div>
+        <div class="about-content">
+            <p>We strive to enhance your window and door experience by providing knowledgeable professionals that you can trust and quality products that you can depend on.</p>
+            <p>Founded in 2006, our team has worked tirelessly to bring Mountain View Window & Door to the forefront of the industry.</p>
+            <p class="tagline">"We believe you shouldn't have to settle."</p>
+            <a href="/about-us" class="about-cta">About Us</a>
+        </div>
+    </section>
+
+    <!-- Brand Partners -->
+    <section class="brands">
+        <p class="brands-title">Our Trusted Partners</p>
+        <div class="brands-grid">
+            <div class="brand-logo">Weather Shield</div>
+            <div class="brand-logo">Fleetwood</div>
+            <div class="brand-logo">Andersen E-Series</div>
+            <div class="brand-logo">Western Window Systems</div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-section">
+        <h3>Ready to Start Your Project?</h3>
+        <a href="/contact" class="contact-cta">Request a Quote</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <span class="logo">🏔️ Mountain View Window & Door</span>
-                <p>Serving Colorado homeowners and professionals since 2006. Quality products, expert guidance, transparent pricing.</p>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Mountain View Window & Door</h4>
+                <p>Serving Colorado homeowners and professionals since 2006.</p>
             </div>
             <div class="footer-col">
-                <h4>Products</h4>
+                <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#">Windows</a></li>
-                    <li><a href="#">Entry Doors</a></li>
-                    <li><a href="#">Patio Doors</a></li>
-                    <li><a href="#">Multi-Slide Doors</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/experience-center">Experience Center</a></li>
+                    <li><a href="/installation-services">Installation Services</a></li>
+                    <li><a href="/about-us">About Us</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+                <h4>Denver Location</h4>
+                <p>5765 E Evans Ave<br>Denver, CO 80222</p>
             </div>
             <div class="footer-col">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Warranty Info</a></li>
-                    <li><a href="#">Financing</a></li>
-                </ul>
+                <h4>Grand Junction Location</h4>
+                <p>2478 Patterson Rd<br>Grand Junction, CO 81505</p>
             </div>
         </div>
         <div class="footer-bottom">
