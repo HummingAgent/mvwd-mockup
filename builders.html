@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builders & Affiliates | Mountain View Window & Door</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8b7355;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(139, 115, 85, 0.9)), 
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920') center/cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 4rem 5%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* Partner Types */
+        .partner-types {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .partner-badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: #1a1a1a;
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #c9a96e;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #aaa;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 6rem 5%;
+            background: #fafafa;
+        }
+
+        .experience-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .experience-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .experience-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .experience-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-step {
+            position: relative;
+            padding: 3rem;
+            text-align: center;
+            background: white;
+            border: 1px solid #eee;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2c3e50, #8b7355);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .experience-step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .experience-step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 6rem 5%;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .services-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            display: flex;
+            gap: 2rem;
+            padding: 2.5rem;
+            background: #fafafa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            background: white;
+            border-color: #c9a96e;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-icon svg {
+            width: 35px;
+            height: 35px;
+            color: #c9a96e;
+        }
+
+        .service-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* AOC Partnership */
+        .partnership {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+            color: white;
+        }
+
+        .partnership-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partnership-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .partnership-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .partnership-features {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .partnership-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .partnership-feature svg {
+            width: 24px;
+            height: 24px;
+            color: #c9a96e;
+            flex-shrink: 0;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: linear-gradient(135deg, #c9a96e, #b8956a);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        .partnership-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .partnership-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .aoc-badge {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .aoc-badge img {
+            height: 40px;
+            width: auto;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background: #fafafa;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #1a252f;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: #2c3e50;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            border: 2px solid #2c3e50;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo-main {
+            color: white;
+        }
+
+        .footer-brand .logo-sub {
+            color: #888;
+        }
+
+        .footer-brand p {
+            color: #888;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: #c9a96e;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .experience-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partnership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="tel:303-649-2217">303-649-2217</a>
+        <a href="mailto:info@mtnview.us">info@mtnview.us</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" style="text-decoration: none;">
+            <div class="logo">
+                <span class="logo-main">MOUNTAIN VIEW</span>
+                <span class="logo-sub">Window & Door</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/products">Products</a></li>
+            <li><a href="/experience-center">Experience Center</a></li>
+            <li><a href="/installation-services">Installation</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">Partner With Excellence</div>
+            <h1>Built for Builders</h1>
+            <p>We know you want to complete projects without drama or hassle. You deserve one less thing to worry about. Let us be your trusted window and door partner.</p>
+            <div class="partner-types">
+                <span class="partner-badge">Architects</span>
+                <span class="partner-badge">Contractors</span>
+                <span class="partner-badge">Design Builders</span>
+                <span class="partner-badge">Developers</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h3>40+</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat-item">
+            <h3>5,000</h3>
+            <p>Sq Ft Showroom</p>
+        </div>
+        <div class="stat-item">
+            <h3>#1</h3>
+            <p>Rated Showroom</p>
+        </div>
+        <div class="stat-item">
+            <h3>2</h3>
+            <p>Experience Centers</p>
+        </div>
+    </section>
+
+    <!-- The Mountain View Experience -->
+    <section class="experience">
+        <div class="experience-header">
+            <h2>The Mountain View Experience</h2>
+            <p>We specialize in bringing all parties to the table and guiding you from concept to completion—so you can focus on being a leader in your field.</p>
+        </div>
+        <div class="experience-steps">
+            <div class="experience-step">
+                <div class="step-number">1</div>
+                <h3>Vision</h3>
+                <p>Bring your clients to our award-winning showroom. See and touch every product. Explore options together and align on the perfect solution for the project.</p>
+            </div>
+            <div class="experience-step">
+                <div class="step-number">2</div>
+                <h3>Plan</h3>
+                <p>Our Trusted Advisors handle the time-consuming product research. Get detailed specifications, accurate pricing, and expert recommendations tailored to your needs.</p>
+            </div>
+            <div class="experience-step">
+                <div class="step-number">3</div>
+                <h3>Process</h3>
+                <p>From order to installation, we manage the details. Our Installation Masters ensure every product performs as designed—because proper installation is everything.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="services-header">
+            <h2>Why Professionals Choose Us</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                </div>
+                <div class="service-content">
+                    <h3>Award-Winning Showroom</h3>
+                    <p>Voted the best showroom in the nation by Andersen Windows & Doors. Our 5,000 sq. ft. space offers a hands-on, interactive experience for you and your clients.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                </div>
+                <div class="service-content">
+                    <h3>Trusted Advisors</h3>
+                    <p>Our knowledgeable team relieves you of time-consuming product research. Get expert guidance and precise specifications that make your job easier.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                    </svg>
+                </div>
+                <div class="service-content">
+                    <h3>Luxury Products</h3>
+                    <p>We carefully curate partnerships with industry-leading manufacturers who create superior products. Whatever your project demands, we can deliver.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </div>
+                <div class="service-content">
+                    <h3>Installation Masters</h3>
+                    <p>Even the highest quality products fail if installed improperly. Our Installation Masters handle complex systems to ensure everything performs as designed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art of Construction Partnership -->
+    <section class="partnership">
+        <div class="partnership-grid">
+            <div class="partnership-content">
+                <h2>Art of Construction Partnership</h2>
+                <p>We're proud members of the Art of Construction community—a network of forward-thinking builders, architects, and industry leaders shaping the future of construction.</p>
+                <div class="partnership-features">
+                    <div class="partnership-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span>Access to industry-leading education and resources</span>
+                    </div>
+                    <div class="partnership-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span>Network with top professionals in the field</span>
+                    </div>
+                    <div class="partnership-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span>Stay ahead with cutting-edge building practices</span>
+                    </div>
+                </div>
+                <a href="https://www.theartofconstruction.net/about" target="_blank" class="btn-gold">Learn About AOC →</a>
+            </div>
+            <div class="partnership-image">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800" alt="Modern architecture">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Partner?</h2>
+        <p>Let's discuss how Mountain View can support your next project. Visit our showroom or schedule a consultation with our team.</p>
+        <div class="cta-buttons">
+            <a href="/contact" class="btn-primary">Contact Us</a>
+            <a href="/experience-center" class="btn-outline">Visit Our Showroom</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-main">MOUNTAIN VIEW</span>
+                    <span class="logo-sub">Window & Door</span>
+                </div>
+                <p>Colorado's premier destination for luxury windows and doors since 1983.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Experience</h4>
+                <ul>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/experience-center">Experience Center</a></li>
+                    <li><a href="/installation-services">Installation</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about-us">About Us</a></li>
+                    <li><a href="/builders">Builders & Affiliates</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Locations</h4>
+                <ul>
+                    <li><a href="/contact">Denver Showroom</a></li>
+                    <li><a href="/contact">Grand Junction</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Mountain View Window & Door. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

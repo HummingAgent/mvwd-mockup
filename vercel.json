@@ -6,6 +6,7 @@
     { "source": "/installation-services", "destination": "/installation-services.html" },
     { "source": "/about-us", "destination": "/about-us.html" },
     { "source": "/professionals", "destination": "/professionals.html" },
+    { "source": "/builders", "destination": "/builders.html" },
     { "source": "/homeowners", "destination": "/homeowners.html" },
     { "source": "/portfolio", "destination": "/portfolio.html" }
   ]
