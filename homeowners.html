@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeowners | Mountain View Window & Door</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .logo-placeholder {
+            font-size: 0.6rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8b7355;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://static.wixstatic.com/media/d8e226_629c54ecc0fa4bda92ebed6c531ecaf7~mv2_d_5760_3840_s_4_2.jpg/v1/fill/w_1920,h_1080,al_c,q_90/d8e226_629c54ecc0fa4bda92ebed6c531ecaf7~mv2_d_5760_3840_s_4_2.jpg') center/cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 4rem 5%;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #8b7355;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .hero-cta:hover {
+            background: #6d5a44;
+        }
+
+        /* Value Props */
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: #2c3e50;
+        }
+
+        .value-prop {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .value-prop:last-child {
+            border-right: none;
+        }
+
+        .value-prop-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-prop h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-prop p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header span {
+            display: inline-block;
+            color: #8b7355;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        /* Showroom Section */
+        .showroom {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .showroom-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .showroom-image {
+            position: relative;
+        }
+
+        .showroom-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .showroom-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: #8b7355;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 50%;
+            text-align: center;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(139,115,85,0.3);
+        }
+
+        .showroom-badge span {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .showroom-badge strong {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .showroom-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .showroom-text p {
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .showroom-cta {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .showroom-cta:hover {
+            background: #1a252f;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            background: #f8f8f8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #8b7355 0%, #c4a67c 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Financing Banner */
+        .financing {
+            background: linear-gradient(135deg, #8b7355 0%, #6d5a44 100%);
+            padding: 4rem 5%;
+            text-align: center;
+            color: white;
+        }
+
+        .financing h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .financing p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .financing-highlight {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .financing-cta {
+            display: inline-block;
+            background: white;
+            color: #8b7355;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .financing-cta:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            top: 35px;
+            right: -1rem;
+            font-size: 1.5rem;
+            color: #8b7355;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: #f8f8f8;
+            border: 3px solid #8b7355;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #8b7355;
+        }
+
+        .process-step h4 {
+            font-size: 1rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            padding: 5rem 5%;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #c4a67c;
+        }
+
+        .testimonial-location {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            background: #f8f8f8;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #8b7355;
+            color: white;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #6d5a44;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #888;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .value-props {
+                grid-template-columns: 1fr;
+            }
+
+            .value-prop {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .showroom-content {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="tel:303-534-5454">303-534-5454</a>
+        <a href="mailto:info@mtnview.us">info@mtnview.us</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="/" style="text-decoration: none; color: inherit;">
+                <span class="logo-main">MOUNTAIN VIEW</span>
+                <span class="logo-sub">Window & Door</span>
+            </a>
+            <span class="logo-placeholder">(new logo placement)</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/products">Products</a></li>
+            <li><a href="/experience-center">Experience Center</a></li>
+            <li><a href="/installation-services">Installation</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>For Homeowners</h1>
+            <p>A transparent, one-stop shop for premium windows and doors. We're with you from start to finish.</p>
+            <a href="/contact" class="hero-cta">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="value-props">
+        <div class="value-prop">
+            <div class="value-prop-icon">🏠</div>
+            <h3>Full Turnkey Service</h3>
+            <p>We're with you from the start to the finish, ensuring you get exactly what you envision for your home.</p>
+        </div>
+        <div class="value-prop">
+            <div class="value-prop-icon">⭐</div>
+            <h3>Exceeding Expectations</h3>
+            <p>From your first step in our doors, you'll understand what makes us stand out from the rest.</p>
+        </div>
+        <div class="value-prop">
+            <div class="value-prop-icon">🔨</div>
+            <h3>Renew & Remodel</h3>
+            <p>From standard retrofit to high-end remodel, we help you achieve your goals within budget.</p>
+        </div>
+    </section>
+
+    <!-- Showroom Section -->
+    <section class="showroom">
+        <div class="showroom-content">
+            <div class="showroom-image">
+                <img src="https://static.wixstatic.com/media/d8e226_cac4c714a54246298864b38f6eec4bac.jpg/v1/fill/w_800,h_600,al_c,q_90/d8e226_cac4c714a54246298864b38f6eec4bac.jpg" alt="MVWD Showroom">
+                <div class="showroom-badge">
+                    <span>Voted</span>
+                    <strong>Best Showroom in the Nation</strong>
+                </div>
+            </div>
+            <div class="showroom-text">
+                <h2>Interactive Showroom Experience</h2>
+                <p>Voted Best Showroom in the Nation by Andersen Windows & Doors, our showroom offers a large selection of full-size displays with all options available to physically touch — rather than just look at in a brochure.</p>
+                <p>Come experience the difference. See, touch, and operate the windows and doors before you buy.</p>
+                <a href="/experience-center" class="showroom-cta">Visit Our Showroom</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <span>Why Choose Us</span>
+            <h2>You Can Rely on Us</h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Endless Options</h3>
+                <p>Energy efficient windows, custom shapes and sizes, indoor/outdoor styles, and a variety of material and glass options. We've got you covered!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Trusted Advisors</h3>
+                <p>Our advisors take time to understand your vision. With their knowledge, they help inform you on the best options — relieving you of time-consuming research.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>Installation Masters</h3>
+                <p>We take pride in our installers. All technicians are AAMA certified Installation Masters, ensuring your products perform as designed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financing Banner -->
+    <section class="financing">
+        <div class="financing-highlight">0%</div>
+        <h2>Financing Available</h2>
+        <p>With multiple options to choose from, we have a plan that's right for you. Make your dream windows and doors affordable today.</p>
+        <a href="/contact" class="financing-cta">Learn About Financing</a>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="section-header">
+            <span>How It Works</span>
+            <h2>Your Journey With Us</h2>
+        </div>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Consultation</h4>
+                <p>Visit our showroom or schedule a home visit</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Design</h4>
+                <p>Work with advisors to select perfect products</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>Order</h4>
+                <p>Finalize details and place your custom order</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Installation</h4>
+                <p>Expert installation by certified professionals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+        <div class="testimonial-content">
+            <p class="testimonial-quote">"I really appreciate working with a tradesman who answers my phone calls, is at the home at the agreed upon time, is friendly, does an excellent job and cleans up. In all areas, Devon and his team from Mt. View Window and Door met my expectations. My windows were installed without a problem, and the finish work on the inside and outside of the house was excellent."</p>
+            <p class="testimonial-author">— Will</p>
+            <p class="testimonial-location">Boulder, CO</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Transform Your Home?</h2>
+        <p>Schedule a consultation with our trusted advisors and discover the perfect windows and doors for your project.</p>
+        <a href="/contact" class="cta-btn">Get Started Today</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Mountain View Window & Door</h4>
+                <p>Serving Colorado homeowners and professionals since 2006.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/experience-center">Experience Center</a></li>
+                    <li><a href="/installation-services">Installation Services</a></li>
+                    <li><a href="/about-us">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Denver Location</h4>
+                <p>815 S Jason St<br>Denver, CO 80223</p>
+            </div>
+            <div class="footer-col">
+                <h4>Grand Junction Location</h4>
+                <p>571 25 Rd (JXN Station)<br>Grand Junction, CO 81505</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mountain View Window & Door. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
