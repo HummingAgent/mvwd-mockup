@@ -530,10 +530,118 @@
         .team-description {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 0 auto 3rem;
             font-size: 1.1rem;
             color: #666;
             line-height: 1.8;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .team-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #8b7355 0%, #6d5a44 100%);
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .personal-placeholder {
+            text-align: center;
+            color: white;
+            padding: 1rem;
+        }
+
+        .personal-placeholder span {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .personal-placeholder p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-info {
+            text-align: center;
+            padding: 1.25rem 0.5rem;
+        }
+
+        .team-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-info .title {
+            font-size: 0.85rem;
+            color: #8b7355;
+            font-weight: 500;
+        }
+
+        .team-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: #fff3cd;
+            border-radius: 12px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .team-note p {
+            color: #856404;
+            font-size: 0.95rem;
         }
 
         /* CTA Section */
@@ -667,6 +775,10 @@
                 grid-template-columns: 1fr 1fr;
             }
 
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
@@ -683,6 +795,10 @@
 
             .values-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer-content {
@@ -861,7 +977,241 @@
             <span>Our People</span>
             <h2>Meet the Team</h2>
         </div>
-        <p class="team-description">All of our employees are the most experienced and qualified in their positions and are eager to provide you with the best window, door, and hardware customer service you have ever experienced. From our trusted advisors to our certified installation masters, every team member is committed to exceeding your expectations.</p>
+        <p class="team-description">Hover over a photo to see the personal side! All of our employees are the most experienced and qualified in their positions.</p>
+        
+        <div class="team-grid">
+            <!-- Devon Tilly -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/f85547_ca68f6836bfd431ca62760dc84d9ed62~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/f85547_ca68f6836bfd431ca62760dc84d9ed62~mv2.jpg" alt="Devon Tilly">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Devon Tilly</h4>
+                    <p class="title">Owner</p>
+                </div>
+            </div>
+
+            <!-- Michael Smith -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/f85547_7c036769c6834cdf9463eefbbeda98a5~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/f85547_7c036769c6834cdf9463eefbbeda98a5~mv2.jpg" alt="Michael Smith">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Michael Smith</h4>
+                    <p class="title">Trusted Advisor</p>
+                </div>
+            </div>
+
+            <!-- Gunther Kuhn -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/f85547_3fdbda1bae8c4f52b1ab827d6c67e735~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/f85547_3fdbda1bae8c4f52b1ab827d6c67e735~mv2.jpg" alt="Gunther Kuhn">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Gunther Kuhn</h4>
+                    <p class="title">Trusted Advisor</p>
+                </div>
+            </div>
+
+            <!-- Gordon Phair -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/f85547_62fce57110bc4feb8bc8a87ade3b0f07~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/f85547_62fce57110bc4feb8bc8a87ade3b0f07~mv2.jpg" alt="Gordon Phair">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Gordon Phair</h4>
+                    <p class="title">Trusted Advisor</p>
+                </div>
+            </div>
+
+            <!-- Stephanie Moreno -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/f85547_810cf6e327fb466eafe2c62329827eab~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/f85547_810cf6e327fb466eafe2c62329827eab~mv2.jpg" alt="Stephanie Moreno">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Stephanie Moreno</h4>
+                    <p class="title">Operations</p>
+                </div>
+            </div>
+
+            <!-- Dustin Thomason -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/f85547_4f39ccecfe3b419cab0ab9dcf3f021db~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/f85547_4f39ccecfe3b419cab0ab9dcf3f021db~mv2.jpg" alt="Dustin Thomason">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Dustin Thomason</h4>
+                    <p class="title">Sales Support</p>
+                </div>
+            </div>
+
+            <!-- Adam Sinclair -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/f85547_582f789677c244ff89f91a9a9aa47164~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/f85547_582f789677c244ff89f91a9a9aa47164~mv2.jpg" alt="Adam Sinclair">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Adam Sinclair</h4>
+                    <p class="title">Trusted Advisor</p>
+                </div>
+            </div>
+
+            <!-- Jayden Seward -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/f85547_73c37ee7ee3945ec8778972e8ff4398c~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/f85547_73c37ee7ee3945ec8778972e8ff4398c~mv2.jpg" alt="Jayden Seward">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Jayden Seward</h4>
+                    <p class="title">Trusted Advisor</p>
+                </div>
+            </div>
+
+            <!-- Saida Aissi -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/f85547_f8f156cf613f46f9931c50cd767167d6~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/f85547_f8f156cf613f46f9931c50cd767167d6~mv2.jpg" alt="Saida Aissi">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Saida Aissi</h4>
+                    <p class="title">Operations</p>
+                </div>
+            </div>
+
+            <!-- Coleman Erickson -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/9e9aed_396ca500b069478f82de1f75b3a2e08e~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/9e9aed_396ca500b069478f82de1f75b3a2e08e~mv2.jpg" alt="Coleman Erickson">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Coleman Erickson</h4>
+                    <p class="title">Team Member</p>
+                </div>
+            </div>
+
+            <!-- Isaac Hollmann -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/9e9aed_81420a79c5e54219964e7ef80da181d6~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/9e9aed_81420a79c5e54219964e7ef80da181d6~mv2.jpg" alt="Isaac Hollmann">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>Isaac Hollmann</h4>
+                    <p class="title">Logistics Technician</p>
+                </div>
+            </div>
+
+            <!-- De Wayne Boese -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://static.wixstatic.com/media/9e9aed_d5b5f50a629347329afd5f1828cd8359~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80/9e9aed_d5b5f50a629347329afd5f1828cd8359~mv2.jpg" alt="De Wayne Boese">
+                    </div>
+                    <div class="card-back">
+                        <div class="personal-placeholder">
+                            <span>📷</span>
+                            <p>Personal photo coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h4>De Wayne Boese</h4>
+                    <p class="title">Team Member</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-note">
+            <p>🎯 <strong>Hey Crystal!</strong> We need personal/fun photos for each team member to complete the flip effect. Send them over and we'll pair them up!</p>
+        </div>
     </section>
 
     <!-- CTA Section -->
