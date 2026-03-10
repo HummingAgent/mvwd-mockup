@@ -164,78 +164,52 @@
             margin: 0 auto;
         }
 
-        .centers-grid {
+        .embed-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .center-card {
+        .embed-card {
             background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
 
-        .center-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139,115,85,0.5);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .center-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
+        .embed-wrapper {
             position: relative;
+            width: 100%;
+            padding-bottom: 75%;
+            background: #000;
         }
 
-        .center-image.denver {
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('/images/denver-showroom.jpg');
-        }
-
-        .center-image.gj {
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('/images/gj-showroom.jpg');
-        }
-
-        .center-badge {
+        .embed-wrapper iframe {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(139,115,85,0.9);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-radius: 4px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
-        .center-content {
+        .embed-info {
             padding: 1.5rem;
+            text-align: center;
         }
 
-        .center-content h3 {
+        .embed-info h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: white;
             margin-bottom: 0.5rem;
         }
 
-        .center-content p {
+        .embed-info p {
             color: rgba(255,255,255,0.7);
             font-size: 0.9rem;
             margin-bottom: 1rem;
-        }
-
-        .center-actions {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
         }
 
         .center-btn {
@@ -579,34 +553,28 @@
             <p>Step into our showrooms to see, touch, and experience premium windows and doors.</p>
         </div>
 
-        <div class="centers-grid">
+        <div class="embed-grid">
             <!-- Denver -->
-            <div class="center-card">
-                <div class="center-image denver">
-                    <span class="center-badge">Award Winning</span>
+            <div class="embed-card">
+                <div class="embed-wrapper">
+                    <iframe src="https://my.matterport.com/show/?m=ai1GXxvacWU" frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
                 </div>
-                <div class="center-content">
+                <div class="embed-info">
                     <h3>Denver Experience Center</h3>
                     <p>815 S Jason St, Denver, CO 80223</p>
-                    <div class="center-actions">
-                        <a href="https://maps.google.com/?q=815+S+Jason+St,+Denver,+CO+80223" target="_blank" class="center-btn primary">📍 Directions</a>
-                        <a href="https://my.matterport.com/show/?m=ai1GXxvacWU" target="_blank" class="center-btn virtual">🎥 Virtual Tour</a>
-                    </div>
+                    <a href="https://maps.google.com/?q=815+S+Jason+St,+Denver,+CO+80223" target="_blank" class="center-btn primary">📍 Get Directions</a>
                 </div>
             </div>
 
             <!-- Grand Junction -->
-            <div class="center-card">
-                <div class="center-image gj">
-                    <span class="center-badge">Western Slope</span>
+            <div class="embed-card">
+                <div class="embed-wrapper">
+                    <iframe src="https://my.matterport.com/show/?m=SjWs79uAEt8" frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
                 </div>
-                <div class="center-content">
+                <div class="embed-info">
                     <h3>Grand Junction Experience Center</h3>
                     <p>571 25 Rd (JXN Station), Grand Junction, CO 81505</p>
-                    <div class="center-actions">
-                        <a href="https://maps.google.com/?q=571+25+Rd,+Grand+Junction,+CO+81505" target="_blank" class="center-btn primary">📍 Directions</a>
-                        <a href="https://my.matterport.com/show/?m=SjWs79uAEt8" target="_blank" class="center-btn virtual">🎥 Virtual Tour</a>
-                    </div>
+                    <a href="https://maps.google.com/?q=571+25+Rd,+Grand+Junction,+CO+81505" target="_blank" class="center-btn primary">📍 Get Directions</a>
                 </div>
             </div>
         </div>
