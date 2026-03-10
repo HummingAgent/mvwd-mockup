@@ -45,6 +45,15 @@
         }
 
         .logo {
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-old {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -353,12 +362,9 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <a href="/">
-                <span class="logo-main">MOUNTAIN VIEW</span>
-                <span class="logo-sub">Window & Door</span>
-            </a>
-        </div>
+        <a href="/" class="logo">
+            <img src="/images/mvwd-logo.svg" alt="Mountain View Window & Door" class="logo-img">
+        </a>
         <ul class="nav-links">
             <li><a href="/products" class="active">Products</a></li>
             <li><a href="/experience-center">Experience Center</a></li>
