@@ -103,7 +103,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://static.wixstatic.com/media/d8e226_6d81062e9437409890fbf2fbfe45aece.jpg/v1/fill/w_1920,h_1080,al_c,q_90/d8e226_6d81062e9437409890fbf2fbfe45aece.jpg') center/cover;
+                        url('/images/installation-hero.jpg') center/cover;
             min-height: 60vh;
             display: flex;
             align-items: center;
@@ -141,6 +141,72 @@
 
         .hero-cta:hover {
             background: #6d5a44;
+        }
+
+        /* Virtual Tour Section */
+        .virtual-tour-section {
+            background: #f8f9fa;
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tour-content {
+            text-align: left;
+        }
+
+        .tour-label {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .tour-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .tour-content p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .tour-embed {
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .tour-embed iframe {
+            width: 100%;
+            height: 450px;
+            display: block;
+        }
+
+        @media (max-width: 968px) {
+            .virtual-tour-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tour-content {
+                text-align: center;
+            }
+
+            .tour-embed iframe {
+                height: 350px;
+            }
         }
 
         /* Key Message */
@@ -725,6 +791,18 @@
             <h1>Get It Done Right</h1>
             <p>Even the highest quality products won't perform as desired if they're installed improperly. Trust our certified experts.</p>
             <a href="/contact" class="hero-cta">Schedule Installation</a>
+        </div>
+    </section>
+
+    <!-- Virtual Tour Section -->
+    <section class="virtual-tour-section">
+        <div class="tour-content">
+            <span class="tour-label">🎥 Virtual Experience</span>
+            <h2>See Our Work in Action</h2>
+            <p>Take a virtual walkthrough of one of our recent installation projects</p>
+        </div>
+        <div class="tour-embed">
+            <iframe src="https://my.matterport.com/show/?m=SaSZtjjhic9" frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
         </div>
     </section>
 
